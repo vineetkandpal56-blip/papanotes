@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Papanotes</title>
+  <link rel="stylesheet" href="note.css">
+</head>
+
+<body>
+
+<nav>
+  <h1>Papanotes 📚</h1>
+  <div>
+    <a href="#">Home</a>
+    <a href="#">Classes</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h2>Class 8, 9, 10 Notes</h2>
+  <p>Free Study Notes for Students</p>
+  <input type="text" id="search" placeholder="Search notes..." onkeyup="searchNotes()">
+</section>
+
+<div class="container">
+
+  <!-- CLASS 10 -->
+  <div class="card" onclick="toggleNote('c10math')">
+    <h3>Class 10 Maths</h3>
+    <div id="c10math" class="note-content">
+      <p><b>Real Numbers:</b> Euclid division lemma...</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleNote('c10science')">
+    <h3>Class 10 Science</h3>
+    <div id="c10science" class="note-content">
+      <p>Chemical reactions and equations...</p>
+    </div>
+  </div>
+
+  <!-- CLASS 9 -->
+  <div class="card" onclick="toggleNote('c9math')">
+    <h3>Class 9 Maths</h3>
+    <div id="c9math" class="note-content">
+      <p>Number systems, Polynomials...</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleNote('c9science')">
+    <h3>Class 9 Science</h3>
+    <div id="c9science" class="note-content">
+      <p>Matter in our surroundings...</p>
+    </div>
+  </div>
+
+  <!-- CLASS 8 -->
+  <div class="card" onclick="toggleNote('c8sst')">
+    <h3>Class 8 SST</h3>
+    <div id="c8sst" class="note-content">
+      <p>History, Civics, Geography basics...</p>
+    </div>
+  </div>
+
+  <div class="card" onclick="toggleNote('c8science')">
+    <h3>Class 8 Science</h3>
+    <div id="c8science" class="note-content">
+      <p>Crop production, Microorganisms...</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2026 Papanotes | All Rights Reserved</p>
+</footer>
+
+<script src="notess.js"></script>
+</body>
+</html>
