@@ -3,105 +3,101 @@
 <head>
   <meta name="google-site-verification" content="KwKXz7dbavoe0z3zYrjuUnHLo2ltd5LOJzb6hYoY4wk" />
   <meta charset="UTF-8">
-  <title>Papanotes</title>
-  <link rel="stylesheet" href="note.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PapaNotes</title>
+
+<link rel="stylesheet" href="note.css">
+<link rel="icon" href="logo.png">
 </head>
 
 <body>
 
-<nav>
-  <h1>PapaNotes 📚</h1>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <h1><img src="logo.png" class="logo"> PapaNotes</h1>
+
   <div>
     <a href="#">Home</a>
-    <a href="#">Classes</a>
-    <a href="#">Contact</a>
+    <a href="#notes">Notes</a>
+    <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<section class="hero">
-  <h2>Class 8, 9, 10 Notes</h2>
-  <p>Free Study Notes for Students</p>
+<!-- HERO -->
+<section class="hero fade-up">
+
+  <!-- background logo -->
+  <img src="logo.png" class="bg-logo">
+
+  <h1>Unleash The Topper In You 🚀</h1>
+  <p>Smart Study • Better Results • Faster Success</p>
+
   <input type="text" id="search" placeholder="Search notes..." onkeyup="searchNotes()">
 </section>
 
-<div class="container">
+<!-- CATEGORY -->
+<section class="categories fade-up">
+  <h2>Select Your Class</h2>
 
-  <!-- CLASS 10 -->
-   <!-- CLASS 12 CHEMISTRY PDF -->
-<div class="card" onclick="toggleNote('chem12')">
-  <h3>Class 12 Chemistry</h3>
-
-  <div id="chem12" class="note-content">
-    <p>Electrochemistry</p>
-
-    <!-- PDF Preview -->
-    <iframe src="Electrodes12.pdf" 
-            width="100%" 
-            height="400px">
-    </iframe>
-
-    <br><br>
-
-    <a href="Electrodes12.pdf" target="_blank">
-      📖 Open Full PDF
-    </a>
-
-    <br><br>
-
-    <a href="Electrodes12.pdf" download>
-      ⬇️ Download PDF
-    </a>
+  <div class="cat-box">
+    <div class="cat">Class 8</div>
+    <div class="cat">Class 9</div>
+    <div class="cat">Class 10</div>
+    <div class="cat">Class 12</div>
   </div>
-</div>
-</div>
-  <div class="card" onclick="toggleNote('c10math')">
+</section>
+
+<!-- NOTES -->
+<section class="notes fade-up" id="notes">
+
+  <div class="card" onclick="toggleNote('chem12')">
+    <h3>Class 12 Chemistry</h3>
+
+    <div id="chem12" class="note-content">
+      <iframe src="Electrodes12.pdf"></iframe>
+
+      <a href="Electrodes12.pdf" target="_blank">📖 Open</a>
+      <a href="Electrodes12.pdf" download>⬇️ Download</a>
+    </div>
+  </div>
+
+  <div class="card">
     <h3>Class 10 Maths</h3>
-    <div id="c10math" class="note-content">
-      <p><b>Real Numbers:</b> Euclid division lemma...</p>
-    </div>
+    <p>Clear concepts + exam focus 📈</p>
   </div>
 
-  <div class="card" onclick="toggleNote('c10science')">
-    <h3>Class 10 Science</h3>
-    <div id="c10science" class="note-content">
-      <p>Chemical reactions and equations...</p>
-    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features fade-up">
+  <div class="box">
+    <h3>Expert Notes</h3>
+    <p>Topper level content</p>
   </div>
 
-  <!-- CLASS 9 -->
-  <div class="card" onclick="toggleNote('c9math')">
-    <h3>Class 9 Maths</h3>
-    <div id="c9math" class="note-content">
-      <p>Number systems, Polynomials...</p>
-    </div>
+  <div class="box">
+    <h3>Fast Learning</h3>
+    <p>Short & clear notes</p>
   </div>
 
-  <div class="card" onclick="toggleNote('c9science')">
-    <h3>Class 9 Science</h3>
-    <div id="c9science" class="note-content">
-      <p>Matter in our surroundings...</p>
-    </div>
+  <div class="box">
+    <h3>Exam Ready</h3>
+    <p>Important topics only</p>
   </div>
+</section>
 
-  <!-- CLASS 8 -->
-  <div class="card" onclick="toggleNote('c8sst')">
-    <h3>Class 8 SST</h3>
-    <div id="c8sst" class="note-content">
-      <p>History, Civics, Geography basics...</p>
-    </div>
-  </div>
+<!-- CONTACT -->
+<section id="contact" class="fade-up">
+  <h2>Contact</h2>
 
-  <div class="card" onclick="toggleNote('c8science')">
-    <h3>Class 8 Science</h3>
-    <div id="c8science" class="note-content">
-      <p>Crop production, Microorganisms...</p>
-    </div>
-  </div>
+  <a href="mailto:vineetkandpal329@gmail.com">
+    vineetkandpal329@gmail.com
+  </a>
+</section>
 
-</div>
-
+<!-- FOOTER -->
 <footer>
-  <p>© 2026 Papanotes | All Rights Reserved</p>
+  <p>© 2026 PapaNotes</p>
 </footer>
 
 <script src="notess.js"></script>
