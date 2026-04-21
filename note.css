@@ -276,3 +276,72 @@ footer{
   text-align:center;
   padding:20px;
 }
+/* 🔥 CLASS ROW FIX */
+.class-row{
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:15px;
+}
+
+/* class buttons same size */
+.class-row .cat{
+  min-width:90px;
+  text-align:center;
+}
+/* 🔥 CLASS ROW FIX (NO HTML CHANGE) */
+
+/* 🔥 CLASS ROW PERFECT ALIGN */
+.cat-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:15px;
+}
+
+/* 🔥 SAME SIZE + PREMIUM LOOK */
+.cat{
+  min-width:110px;
+  text-align:center;
+  padding:10px 16px;
+  border-radius:25px;
+  border:1px solid #e5e7eb;
+  background:#ffffff;
+  font-weight:500;
+  transition:0.3s;
+}
+
+/* 🔥 HOVER EFFECT */
+.cat:hover{
+  background:#6366f1;
+  color:white;
+  transform:translateY(-2px);
+  box-shadow:0 5px 15px rgba(99,102,241,0.3);
+}
+
+/* 🔥 ACTIVE (CLICKED) */
+.cat.active{
+  background:#6366f1;
+  color:white;
+  box-shadow:0 0 15px rgba(99,102,241,0.5);
+}
+
+/* 🔥 SUBJECT BOX SMOOTH */
+.subjects{
+  animation:fadeIn 0.3s ease;
+}
+
+/* 🔥 ANIMATION */
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}

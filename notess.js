@@ -158,3 +158,66 @@ function typing(){
 typing();
 
 });
+window.toggleClass = function(id, btn){
+
+  let el = document.getElementById(id);
+
+  document.querySelectorAll(".subjects").forEach(s=>{
+    if(s !== el) s.style.display = "none";
+  });
+
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+
+  document.querySelectorAll(".cat").forEach(c=>{
+    c.classList.remove("active");
+  });
+
+  if(btn) btn.classList.add("active");
+};
+function autoScroll(){
+  let i = 0;
+  let scroll = setInterval(()=>{
+    window.scrollBy(0,1);
+    i++;
+
+    if(i > 500) clearInterval(scroll);
+  },10);
+}
+const quotes = [
+  "Study now, shine later 💯",
+  "No pain no gain 🔥",
+  "Topper बनने का time आ गया 🚀"
+];
+
+function randomQuote(){
+  let q = quotes[Math.floor(Math.random()*quotes.length)];
+  document.getElementById("quote").innerText = q;
+}
+
+setInterval(randomQuote,3000);
+function speak(text){
+  let msg = new SpeechSynthesisUtterance(text);
+  speechSynthesis.speak(msg);
+}
+let time = 0;
+let timer;
+
+function startTimer(){
+  timer = setInterval(()=>{
+    time++;
+    document.getElementById("timer").innerText = time + " sec";
+  },1000);
+}
+
+function stopTimer(){
+  clearInterval(timer);
+}
+function unlock(){
+  let pass = prompt("Enter code");
+  if(pass === "1234"){
+    alert("Unlocked 🔓");
+    localStorage.setItem("unlock", true);
+  } else {
+    alert("Wrong ❌");
+  }
+}

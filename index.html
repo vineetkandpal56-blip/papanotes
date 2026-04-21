@@ -56,8 +56,19 @@
 <!-- CATEGORY -->
 <section class="categories fade-up">
   <h2>Select Your Class</h2>
+  
 
   <div class="cat-box">
+    <div class="cat-box">
+
+  <div class="cat" onclick="toggleClass('c8')">Class 8</div>
+  <div class="cat" onclick="toggleClass('c9')">Class 9</div>
+  <div class="cat" onclick="toggleClass('c10')">Class 10</div>
+  <div class="cat" onclick="toggleClass('c11')">Class 11</div>
+  <div class="cat" onclick="toggleClass('c12')">Class 12</div>
+  <div class="cat" onclick="toggleClass('bca')">BCA 🎓</div>
+
+</div>
 
     <div class="cat" onclick="toggleClass('c8')">Class 8</div>
     <div id="c8" class="subjects">
@@ -221,7 +232,7 @@
 
 </section>
 
-    <div class="cat" onclick="toggleClass('c11')">Class 11</div>
+    
     <div id="c11" class="subjects">
       <p>Physics</p>
       <p>Chemistry</p>
@@ -229,15 +240,110 @@
       <p>Biology</p>
     </div>
 
-    <div class="cat" onclick="toggleClass('c12')">Class 12</div>
-    <div id="c12" class="subjects">
-      <p>Physics</p>
-      <p>Chemistry</p>
-      <p>Maths</p>
+
+<div id="c12" class="subjects">
+
+  <!-- SUBJECTS -->
+  <p>Maths</p>
+  <p>Physics</p>
+
+  <!-- 🔥 CHEMISTRY (FULL WORKING) -->
+  <p onclick="toggleNote('chem12pyq')" style="cursor:pointer;">
+    Chemistry 🧪
+  </p>
+
+  <div id="chem12pyq" class="note-content">
+
+    <div class="card" onclick="toggleNote('chemPyq')">
+      <h3>Chemistry </h3>
+
+      <div id="chemPyq" class="note-content">
+        <a href="pdf/pyq12chem.pdf" class="btn pdf-btn">📄 PDF</a>
+
+        <button class="btn info-btn"
+          onclick="event.stopPropagation(); openImage('images/pyq12chem.jpg')">
+          📊 Infographic
+        </button>
+      </div>
+
     </div>
 
   </div>
+
+  <p>Biology</p>
+
+</div>
 </section>
+
+
+<div id="bca" class="subjects">
+
+  <!-- PYQ OPTION -->
+  <p onclick="toggleNote('bcaPyq')" style="cursor:pointer;">
+    PYQ 📚
+  </p>
+
+  <div id="bcaPyq" class="note-content">
+
+    <!-- DSA IN C -->
+    <div class="card" onclick="toggleNote('dsa')">
+      <h3>DSA in C</h3>
+      <div id="dsa" class="note-content">
+        <div class="btn-box">
+          <a href="pdf/dsa.pdf" class="btn pdf-btn">PDF</a>
+          <button class="btn info-btn"
+            onclick="event.stopPropagation(); openImage('images/dsa.jpg')">
+            Info
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEB TECHNOLOGY -->
+    <div class="card" onclick="toggleNote('web')">
+      <h3>Web Technology</h3>
+      <div id="web" class="note-content">
+        <div class="btn-box">
+          <a href="pdf/web.pdf" class="btn pdf-btn">PDF</a>
+          <button class="btn info-btn"
+            onclick="event.stopPropagation(); openImage('images/web.jpg')">
+            Info
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAVA -->
+    <div class="card" onclick="toggleNote('java')">
+      <h3>Java</h3>
+      <div id="java" class="note-content">
+        <div class="btn-box">
+          <a href="pdf/java.pdf" class="btn pdf-btn">PDF</a>
+          <button class="btn info-btn"
+            onclick="event.stopPropagation(); openImage('images/java.jpg')">
+            Info
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- OPERATING SYSTEM -->
+    <div class="card" onclick="toggleNote('os')">
+      <h3>Operating System</h3>
+      <div id="os" class="note-content">
+        <div class="btn-box">
+          <a href="pdf/os.pdf" class="btn pdf-btn">PDF</a>
+          <button class="btn info-btn"
+            onclick="event.stopPropagation(); openImage('images/os.jpg')">
+            Info
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
 
 <!-- NOTES -->
 <section class="notes fade-up" id="notes">
