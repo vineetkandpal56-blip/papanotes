@@ -4,76 +4,124 @@
   <meta name="google-site-verification" content="KwKXz7dbavoe0z3zYrjuUnHLo2ltd5LOJzb6hYoY4wk" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Download free Class 8, 9, 10, 12 notes. Chemistry, Maths notes available on PapaNotes.">
-  <title>PapaNotes - Class 8,9,10,12 Free Notes | Chemistry Maths Notes</title>
 
-<link rel="stylesheet" href="note.css">
-<link rel="icon" type="image/png" href="logo.png">
-<link rel="shortcut icon" href="logo.png">
+  <title>PapaNotes - Free Notes</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="note.css">
+
+  <!-- Favicon -->
+  <link rel="icon" href="logo.png">
 </head>
 
 <body>
 
-<!-- NAVBAR -->
+<!-- 🔝 NAVBAR -->
 <nav class="navbar">
   <h1><img src="logo.png" class="logo"> PapaNotes</h1>
 
   <div>
-    <a href="#">Home</a>
+    <a href="#" onclick="goHome()">Home</a>
     <a href="#notes">Notes</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- 🔥 HERO -->
 <section class="hero fade-up">
-
-  <!-- background logo -->
   <img src="logo.png" class="bg-logo">
 
-  <h1>Unleash The Topper In You 🚀</h1>
+  <h1></h1>
   <p>Smart Study • Better Results • Faster Success</p>
 
-  <input type="text" id="search" placeholder="Search notes..." onkeyup="searchNotes()">
+  <!-- SEARCH WORKING -->
+   <div class="search-container">
+  
+  <div id="suggestions" class="suggestions"></div>
+</div>
+  <div class="search-box">
+  <input 
+    type="text" 
+    id="search" 
+    placeholder="🔍 Search notes or subjects..."
+    autocomplete="off"
+  >
+</div> 
 </section>
 
-<!-- CATEGORY -->
+<!-- 🎯 CATEGORY -->
 <section class="categories fade-up">
   <h2>Select Your Class</h2>
 
   <div class="cat-box">
-    <div class="cat">Class 8</div>
-    <div class="cat">Class 9</div>
-    <div class="cat">Class 10</div>
-    <div class="cat">Class 12</div>
+
+    <div class="cat" onclick="toggleClass('c8')">Class 8</div>
+    <div id="c8" class="subjects">
+      <p>Maths</p>
+      <p>Science</p>
+      <p>English</p>
+    </div>
+
+    <div class="cat" onclick="toggleClass('c9')">Class 9</div>
+    <div id="c9" class="subjects">
+      <p>Maths</p>
+      <p>Science</p>
+      <p>Social Science</p>
+    </div>
+
+    <div class="cat" onclick="toggleClass('c10')">Class 10</div>
+    <div id="c10" class="subjects">
+      <p>Maths</p>
+      <p>Science</p>
+      <p>English</p>
+    </div>
+
+    <div class="cat" onclick="toggleClass('c11')">Class 11</div>
+    <div id="c11" class="subjects">
+      <p>Physics</p>
+      <p>Chemistry</p>
+      <p>Maths</p>
+      <p>Biology</p>
+    </div>
+
+    <div class="cat" onclick="toggleClass('c12')">Class 12</div>
+    <div id="c12" class="subjects">
+      <p>Physics</p>
+      <p>Chemistry</p>
+      <p>Maths</p>
+    </div>
+
   </div>
 </section>
 
-<!-- NOTES -->
+<!-- 📚 NOTES -->
 <section class="notes fade-up" id="notes">
 
   <div class="container">  
 
+    <!-- NOTE 1 -->
     <div class="card" onclick="toggleNote('chem12')">
-  
-    <h3>Class 12 Chemistry</h3>
+      <h3>Class 12 Chemistry</h3>
 
-    <div id="chem12" class="note-content">
-      <iframe src="Electrodes12.pdf"></iframe>
+      <div id="chem12" class="note-content">
+        <iframe src="Electrodes12.pdf"></iframe>
 
-      <a href="Electrodes12.pdf" target="_blank">📖 Open</a>
-      <a href="Electrodes12.pdf" download>⬇️ Download</a>
+        <a href="Electrodes12.pdf" target="_blank">📖 Open</a>
+        <a href="Electrodes12.pdf" download>⬇️ Download</a>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <h3>Class 10 Maths</h3>
-    <p>Clear concepts + exam focus 📈</p>
+    <!-- NOTE 2 -->
+    <div class="card">
+      <h3>Class 10 Maths</h3>
+      <p>Clear concepts + exam focus 📈</p>
+    </div>
+
   </div>
 
 </section>
 
-<!-- FEATURES -->
+<!-- ⭐ FEATURES -->
 <section class="features fade-up">
   <div class="box">
     <h3>Expert Notes</h3>
@@ -91,20 +139,23 @@
   </div>
 </section>
 
-<!-- CONTACT -->
+<!-- 📩 CONTACT -->
 <section id="contact" class="fade-up">
   <h2>Contact</h2>
 
+  <p>Email:</p>
   <a href="mailto:vineetkandpal329@gmail.com">
-    vineetkandpal329@gmail.com
+    📧 vineetkandpal329@gmail.com
   </a>
 </section>
 
-<!-- FOOTER -->
+<!-- 🔻 FOOTER -->
 <footer>
   <p>© 2026 PapaNotes</p>
 </footer>
 
+<!-- JS -->
 <script src="notess.js"></script>
+
 </body>
 </html>
