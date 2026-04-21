@@ -26,23 +26,27 @@ window.toggleClass = function(id){
 };
 
 /* =========================
-   📄 NOTE TOGGLE (PDF FIXED)
+   📄 NOTE TOGGLE (FIXED)
 ========================= */
-function closeAllNotes(){
-  document.querySelectorAll(".note-content").forEach(n => {
-    n.style.display = "none";
-  });
-}
-
 window.toggleNote = function(id){
   let el = document.getElementById(id);
 
-  if(el.style.display === "block"){
-    el.style.display = "none";
-  } else {
-    closeAllNotes();
-    el.style.display = "block";
+  if(!el) return;
 
+  let parent = el.parentElement;
+
+  // only close siblings (important fix)
+  parent.querySelectorAll(":scope > .note-content").forEach(n => {
+    if(n !== el){
+      n.style.display = "none";
+    }
+  });
+
+  // toggle current
+  el.style.display = (el.style.display === "block") ? "none" : "block";
+
+  // scroll
+  if(el.style.display === "block"){
     el.scrollIntoView({
       behavior: "smooth",
       block: "center"
@@ -54,12 +58,20 @@ window.toggleNote = function(id){
    📷 IMAGE POPUP
 ========================= */
 window.openImage = function(src){
-  document.getElementById("imgPopup").style.display = "flex";
-  document.getElementById("popupImg").src = src;
+  let popup = document.getElementById("imgPopup");
+  let img = document.getElementById("popupImg");
+
+  if(popup && img){
+    popup.style.display = "flex";
+    img.src = src;
+  }
 };
 
 window.closeImage = function(){
-  document.getElementById("imgPopup").style.display = "none";
+  let popup = document.getElementById("imgPopup");
+  if(popup){
+    popup.style.display = "none";
+  }
 };
 
 /* =========================
@@ -77,7 +89,6 @@ if(search){
 
     let results = [];
 
-    // collect data
     document.querySelectorAll(".card, .subjects p").forEach(el => {
       let text = el.innerText;
 
@@ -86,16 +97,13 @@ if(search){
       }
     });
 
-    // remove duplicates
     results = [...new Set(results)];
 
-    // filter cards
     document.querySelectorAll(".card").forEach(card => {
       let text = card.innerText.toLowerCase();
       card.style.display = text.includes(value) ? "block" : "none";
     });
 
-    // suggestions show
     if(value !== ""){
       results.slice(0,5).forEach(item => {
         let div = document.createElement("div");
@@ -127,7 +135,7 @@ if(search){
 ========================= */
 document.addEventListener("click", function(e){
   if(!e.target.closest(".search-box")){
-    suggestions.style.display = "none";
+    if(suggestions) suggestions.style.display = "none";
   }
 });
 
