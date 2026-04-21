@@ -345,3 +345,76 @@ footer{
     transform:translateY(0);
   }
 }
+/* 🔥 CLASS 12 CHEMISTRY CENTER FIX */
+#chem12{
+  display:flex;
+  flex-direction:column;
+  align-items:center;   /* 👈 center */
+}
+
+/* chapter cards width + center */
+#chem12 .card{
+  width:90%;
+  max-width:400px;      /* 👈 mobile pe perfect */
+}
+#c12{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+#chem12 .card{
+  width:90%;
+  max-width:400px;
+  margin:10px auto;   /* spacing */
+}
+/* 🔥 FULL CENTER FORCE FIX */
+#c12{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* subjects center */
+#c12 p{
+  text-align:center;
+  width:100%;
+}
+
+/* chemistry container center */
+#chem12{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* cards ko center + proper size */
+#chem12 .card{
+  width:90%;
+  max-width:350px;
+  margin:10px auto;
+  display:block;
+}
+/* 🔥 ALL CENTER FIX */
+.subjects{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+
+/* cards center */
+.note-content{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* card size fix */
+.card{
+  width:90%;
+  max-width:400px;
+  margin:10px auto;
+}

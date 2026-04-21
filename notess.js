@@ -212,12 +212,3 @@ function startTimer(){
 function stopTimer(){
   clearInterval(timer);
 }
-function unlock(){
-  let pass = prompt("Enter code");
-  if(pass === "1234"){
-    alert("Unlocked 🔓");
-    localStorage.setItem("unlock", true);
-  } else {
-    alert("Wrong ❌");
-  }
-}
