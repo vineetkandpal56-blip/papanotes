@@ -4,19 +4,15 @@
   <meta name="google-site-verification" content="KwKXz7dbavoe0z3zYrjuUnHLo2ltd5LOJzb6hYoY4wk" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>PapaNotes - Free Notes</title>
 
-  <!-- CSS -->
   <link rel="stylesheet" href="note.css">
-
-  <!-- Favicon -->
   <link rel="icon" href="logo.png">
 </head>
 
 <body>
 
-<!-- 🔝 NAVBAR -->
+<!-- NAVBAR -->
 <nav class="navbar">
   <h1><img src="logo.png" class="logo"> PapaNotes</h1>
 
@@ -27,29 +23,27 @@
   </div>
 </nav>
 
-<!-- 🔥 HERO -->
+<!-- HERO -->
 <section class="hero fade-up">
   <img src="logo.png" class="bg-logo">
 
-  <h1></h1>
+  <h1 id="heroText"></h1>
   <p>Smart Study • Better Results • Faster Success</p>
 
-  <!-- SEARCH WORKING -->
-   <div class="search-container">
-  
-  <div id="suggestions" class="suggestions"></div>
-</div>
+  <!-- SEARCH -->
   <div class="search-box">
-  <input 
-    type="text" 
-    id="search" 
-    placeholder="🔍 Search notes or subjects..."
-    autocomplete="off"
-  >
-</div> 
+    <input 
+      type="text" 
+      id="search" 
+      placeholder="🔍 Search notes or subjects..."
+      autocomplete="off"
+    >
+
+    <div id="suggestions" class="suggestions"></div>
+  </div>
 </section>
 
-<!-- 🎯 CATEGORY -->
+<!-- CATEGORY -->
 <section class="categories fade-up">
   <h2>Select Your Class</h2>
 
@@ -94,12 +88,26 @@
   </div>
 </section>
 
-<!-- 📚 NOTES -->
+<!-- NOTES -->
 <section class="notes fade-up" id="notes">
 
   <div class="container">  
 
-    <!-- NOTE 1 -->
+    <!-- 🔥 NEW IMAGE NOTE (α TOPIC) -->
+    <div class="card" onclick="toggleNote('alphaNote')">
+      <h3>Degree of Dissociation & Association (α)</h3>
+
+      <div id="alphaNote" class="note-content">
+        
+        <img src="alpha.jpg.jpeg" class="note-img" onclick="openImage(this.src)">
+
+        <a href="alpha.jpg.jpeg" target="_blank">🔍 Full View</a>
+        <a href="alpha.jpg.jpeg" download>⬇️ Download</a>
+
+      </div>
+    </div>
+
+    <!-- EXISTING NOTE -->
     <div class="card" onclick="toggleNote('chem12')">
       <h3>Class 12 Chemistry</h3>
 
@@ -111,7 +119,6 @@
       </div>
     </div>
 
-    <!-- NOTE 2 -->
     <div class="card">
       <h3>Class 10 Maths</h3>
       <p>Clear concepts + exam focus 📈</p>
@@ -121,7 +128,12 @@
 
 </section>
 
-<!-- ⭐ FEATURES -->
+<!-- IMAGE POPUP -->
+<div id="imgPopup" class="img-popup" onclick="closeImage()">
+  <img id="popupImg">
+</div>
+
+<!-- FEATURES -->
 <section class="features fade-up">
   <div class="box">
     <h3>Expert Notes</h3>
@@ -139,7 +151,7 @@
   </div>
 </section>
 
-<!-- 📩 CONTACT -->
+<!-- CONTACT -->
 <section id="contact" class="fade-up">
   <h2>Contact</h2>
 
@@ -149,12 +161,11 @@
   </a>
 </section>
 
-<!-- 🔻 FOOTER -->
+<!-- FOOTER -->
 <footer>
   <p>© 2026 PapaNotes</p>
 </footer>
 
-<!-- JS -->
 <script src="notess.js"></script>
 
 </body>

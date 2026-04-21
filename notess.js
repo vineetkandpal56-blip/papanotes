@@ -3,19 +3,17 @@ document.addEventListener("DOMContentLoaded", function(){
 /* =========================
    🏠 HOME BUTTON
 ========================= */
-function goHome(){
+window.goHome = function(){
   window.scrollTo({
     top: 0,
     behavior: "smooth"
   });
-}
-window.goHome = goHome;
-
+};
 
 /* =========================
    📂 CLASS TOGGLE
 ========================= */
-function toggleClass(id){
+window.toggleClass = function(id){
   let el = document.getElementById(id);
 
   document.querySelectorAll(".subjects").forEach(s => {
@@ -25,20 +23,18 @@ function toggleClass(id){
   });
 
   el.style.display = (el.style.display === "block") ? "none" : "block";
-}
-window.toggleClass = toggleClass;
-
+};
 
 /* =========================
-   📄 NOTE TOGGLE
+   📄 NOTE TOGGLE (PDF FIXED)
 ========================= */
 function closeAllNotes(){
-  document.querySelectorAll(".note-content").forEach(el => {
-    el.style.display = "none";
+  document.querySelectorAll(".note-content").forEach(n => {
+    n.style.display = "none";
   });
 }
 
-function toggleNote(id){
+window.toggleNote = function(id){
   let el = document.getElementById(id);
 
   if(el.style.display === "block"){
@@ -52,85 +48,88 @@ function toggleNote(id){
       block: "center"
     });
   }
-}
-window.toggleNote = toggleNote;
-
+};
 
 /* =========================
-   🔍 SEARCH SYSTEM (FINAL)
+   📷 IMAGE POPUP
 ========================= */
-const input = document.getElementById("search");
+window.openImage = function(src){
+  document.getElementById("imgPopup").style.display = "flex";
+  document.getElementById("popupImg").src = src;
+};
 
-if(input){
-  input.addEventListener("input", function(){
+window.closeImage = function(){
+  document.getElementById("imgPopup").style.display = "none";
+};
 
-    let value = input.value.toLowerCase();
+/* =========================
+   🔍 SEARCH + SUGGESTIONS
+========================= */
+const search = document.getElementById("search");
+const suggestions = document.getElementById("suggestions");
 
-    // NOTES FILTER
+if(search){
+
+  search.addEventListener("input", function(){
+
+    let value = search.value.toLowerCase().trim();
+    suggestions.innerHTML = "";
+
+    let results = [];
+
+    // collect data
+    document.querySelectorAll(".card, .subjects p").forEach(el => {
+      let text = el.innerText;
+
+      if(text.toLowerCase().includes(value)){
+        results.push(text);
+      }
+    });
+
+    // remove duplicates
+    results = [...new Set(results)];
+
+    // filter cards
     document.querySelectorAll(".card").forEach(card => {
       let text = card.innerText.toLowerCase();
       card.style.display = text.includes(value) ? "block" : "none";
     });
 
-    // SUBJECT FILTER
-    document.querySelectorAll(".subjects p").forEach(sub => {
-      let text = sub.innerText.toLowerCase();
+    // suggestions show
+    if(value !== ""){
+      results.slice(0,5).forEach(item => {
+        let div = document.createElement("div");
+        div.innerText = item;
 
-      if(text.includes(value)){
-        sub.style.display = "block";
-        sub.parentElement.style.display = "block";
-      } else {
-        sub.style.display = "none";
-      }
-    });
+        div.onclick = function(){
+          search.value = item;
+          suggestions.style.display = "none";
 
-    // RESET
-    if(value === ""){
-      document.querySelectorAll(".card").forEach(c => c.style.display = "block");
-      document.querySelectorAll(".subjects p").forEach(p => p.style.display = "block");
-      document.querySelectorAll(".subjects").forEach(s => s.style.display = "none");
-    }
+          document.getElementById("notes").scrollIntoView({
+            behavior:"smooth"
+          });
+        };
 
-  });
-}
-
-
-/* =========================
-   🔥 SCROLL ANIMATION
-========================= */
-const faders = document.querySelectorAll(".fade-up");
-
-function reveal(){
-  faders.forEach(el => {
-    let top = el.getBoundingClientRect().top;
-
-    if(top < window.innerHeight - 60){
-      el.classList.add("show");
-    }
-  });
-}
-
-window.addEventListener("scroll", reveal);
-reveal();
-
-
-/* =========================
-   🔗 SMOOTH SCROLL
-========================= */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function(e){
-    e.preventDefault();
-
-    let target = document.querySelector(this.getAttribute("href"));
-
-    if(target){
-      target.scrollIntoView({
-        behavior: "smooth"
+        suggestions.appendChild(div);
       });
-    }
-  });
-});
 
+      suggestions.style.display = "block";
+    } else {
+      suggestions.style.display = "none";
+    }
+
+  });
+
+}
+
+/* =========================
+   ❌ CLICK OUTSIDE CLOSE
+========================= */
+document.addEventListener("click", function(e){
+  if(!e.target.closest(".search-box")){
+    suggestions.style.display = "none";
+  }
+});
 
 /* =========================
    ✨ HERO TYPING EFFECT
@@ -139,98 +138,15 @@ const text = "Unleash The Topper In You 🚀";
 let i = 0;
 
 function typing(){
-  let hero = document.querySelector(".hero h1");
+  let hero = document.getElementById("heroText");
 
   if(hero && i < text.length){
     hero.innerHTML += text.charAt(i);
     i++;
-    setTimeout(typing, 35);
+    setTimeout(typing, 40);
   }
 }
 
-let hero = document.querySelector(".hero h1");
-if(hero){
-  hero.innerHTML = "";
-  typing();
-}
-
-
-/* =========================
-   🎯 SUBJECT CLICK → NOTES
-========================= */
-document.querySelectorAll(".subjects p").forEach(sub => {
-  sub.addEventListener("click", () => {
-
-    let notesSection = document.getElementById("notes");
-
-    if(notesSection){
-      notesSection.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
-
-  });
-});
-
-});
-document.addEventListener("DOMContentLoaded", function(){
-
-  const input = document.getElementById("search");
-  const suggestionsBox = document.getElementById("suggestions");
-
-  if(!input) return;
-
-  input.addEventListener("input", function(){
-
-    let value = input.value.toLowerCase();
-    suggestionsBox.innerHTML = "";
-
-    if(value === ""){
-      suggestionsBox.style.display = "none";
-      return;
-    }
-
-    let data = [];
-
-    // collect all text
-    document.querySelectorAll(".card, .subjects p").forEach(el => {
-      let text = el.innerText.trim();
-
-      if(text.toLowerCase().includes(value)){
-        data.push(text);
-      }
-    });
-
-    // remove duplicates
-    data = [...new Set(data)];
-
-    // show suggestions
-    data.slice(0,5).forEach(item => {
-      let div = document.createElement("div");
-      div.innerText = item;
-
-      div.onclick = () => {
-        input.value = item;
-        suggestionsBox.style.display = "none";
-
-        // scroll to notes
-        document.getElementById("notes").scrollIntoView({
-          behavior:"smooth"
-        });
-      };
-
-      suggestionsBox.appendChild(div);
-    });
-
-    suggestionsBox.style.display = "block";
-
-  });
-
-  // click outside close
-  document.addEventListener("click", (e)=>{
-    if(!e.target.closest(".search-box")){
-      suggestionsBox.style.display = "none";
-    }
-  });
+typing();
 
 });
