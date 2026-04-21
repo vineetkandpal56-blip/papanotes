@@ -418,3 +418,116 @@ footer{
   max-width:400px;
   margin:10px auto;
 }
+/* 🔥 FINAL BUG FIX (ONLY ADD THIS) */
+
+/* subjects hidden by default */
+.subjects{
+  display:none;
+}
+
+/* note content hidden */
+.note-content{
+  display:none;
+}
+
+/* center fix */
+.card{
+  margin:10px auto;
+}
+/* 🔥 SMOOTH ANIMATION */
+.card{
+  transition:0.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 15px 35px rgba(99,102,241,0.3);
+}
+
+/* 🔥 BUTTON GLOW */
+.btn{
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 10px rgba(34,197,94,0.6);
+}
+
+/* 🔥 SUBJECT DROPDOWN ANIMATION */
+.subjects{
+  animation:fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(-10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* 🔥 NOTE OPEN SMOOTH */
+.note-content{
+  animation:slideDown 0.3s ease;
+}
+
+@keyframes slideDown{
+  from{
+    opacity:0;
+    transform:translateY(-15px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* 🔥 ACTIVE CLASS BUTTON */
+.cat.active{
+  background:#6366f1;
+  color:white;
+  box-shadow:0 0 15px rgba(99,102,241,0.5);
+}
+
+/* 🔥 SCROLL SMOOTH */
+html{
+  scroll-behavior:smooth;
+}
+body{
+  opacity:0;
+  transition:0.5s;
+}
+/* 🔥 CLASS 10 + ALL SUBJECT CENTER FIX */
+.subjects{
+  display:none;
+  flex-direction:column;
+  align-items:center;   /* 👈 center */
+  text-align:center;
+}
+
+/* जब show हो तब भी center रहे */
+.subjects[style*="block"]{
+  display:flex !important;
+}
+
+/* अंदर का content */
+.note-content{
+  width:100%;
+  display:none;
+  flex-direction:column;
+  align-items:center;
+}
+
+/* जब open हो */
+.note-content[style*="block"]{
+  display:flex !important;
+}
+
+/* cards center */
+.card{
+  margin:10px auto;
+}

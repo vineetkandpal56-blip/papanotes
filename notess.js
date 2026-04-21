@@ -1,214 +1,159 @@
 document.addEventListener("DOMContentLoaded", function(){
 
-/* =========================
-   🏠 HOME BUTTON
-========================= */
-window.goHome = function(){
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth"
-  });
-};
-
-/* =========================
-   📂 CLASS TOGGLE
-========================= */
-window.toggleClass = function(id){
-  let el = document.getElementById(id);
-
-  document.querySelectorAll(".subjects").forEach(s => {
-    if(s !== el){
-      s.style.display = "none";
-    }
+  // 🔒 sab band (IMPORTANT FIX)
+  document.querySelectorAll(".subjects, .note-content").forEach(el=>{
+    el.style.display = "none";
   });
 
-  el.style.display = (el.style.display === "block") ? "none" : "block";
-};
-
-/* =========================
-   📄 NOTE TOGGLE (FIXED)
-========================= */
-window.toggleNote = function(id){
-  let el = document.getElementById(id);
-
-  if(!el) return;
-
-  let parent = el.parentElement;
-
-  // only close siblings (important fix)
-  parent.querySelectorAll(":scope > .note-content").forEach(n => {
-    if(n !== el){
-      n.style.display = "none";
-    }
-  });
-
-  // toggle current
-  el.style.display = (el.style.display === "block") ? "none" : "block";
-
-  // scroll
-  if(el.style.display === "block"){
-    el.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
+  /* =========================
+     🏠 HOME BUTTON
+  ========================= */
+  window.goHome = function(){
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
     });
-  }
-};
+  };
 
-/* =========================
-   📷 IMAGE POPUP
-========================= */
-window.openImage = function(src){
-  let popup = document.getElementById("imgPopup");
-  let img = document.getElementById("popupImg");
+  /* =========================
+     📂 CLASS TOGGLE (FIXED)
+  ========================= */
+  window.toggleClass = function(id, btn){
 
-  if(popup && img){
-    popup.style.display = "flex";
-    img.src = src;
-  }
-};
+    let el = document.getElementById(id);
 
-window.closeImage = function(){
-  let popup = document.getElementById("imgPopup");
-  if(popup){
-    popup.style.display = "none";
-  }
-};
-
-/* =========================
-   🔍 SEARCH + SUGGESTIONS
-========================= */
-const search = document.getElementById("search");
-const suggestions = document.getElementById("suggestions");
-
-if(search){
-
-  search.addEventListener("input", function(){
-
-    let value = search.value.toLowerCase().trim();
-    suggestions.innerHTML = "";
-
-    let results = [];
-
-    document.querySelectorAll(".card, .subjects p").forEach(el => {
-      let text = el.innerText;
-
-      if(text.toLowerCase().includes(value)){
-        results.push(text);
+    document.querySelectorAll(".subjects").forEach(s=>{
+      if(s !== el){
+        s.style.display = "none";
       }
     });
 
-    results = [...new Set(results)];
+    el.style.display = (el.style.display === "block") ? "none" : "block";
 
-    document.querySelectorAll(".card").forEach(card => {
-      let text = card.innerText.toLowerCase();
-      card.style.display = text.includes(value) ? "block" : "none";
+    // active button
+    document.querySelectorAll(".cat").forEach(c=>{
+      c.classList.remove("active");
     });
 
-    if(value !== ""){
-      results.slice(0,5).forEach(item => {
-        let div = document.createElement("div");
-        div.innerText = item;
+    if(btn) btn.classList.add("active");
+  };
 
-        div.onclick = function(){
-          search.value = item;
-          suggestions.style.display = "none";
+  /* =========================
+     📄 NOTE TOGGLE
+  ========================= */
+  window.toggleNote = function(id){
+    let el = document.getElementById(id);
+    if(!el) return;
 
-          document.getElementById("notes").scrollIntoView({
-            behavior:"smooth"
-          });
-        };
+    let parent = el.parentElement;
 
-        suggestions.appendChild(div);
+    parent.querySelectorAll(":scope > .note-content").forEach(n=>{
+      if(n !== el){
+        n.style.display = "none";
+      }
+    });
+
+    el.style.display = (el.style.display === "block") ? "none" : "block";
+
+    if(el.style.display === "block"){
+      el.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }
+  };
+
+  /* =========================
+     📷 IMAGE POPUP
+  ========================= */
+  window.openImage = function(src){
+    let popup = document.getElementById("imgPopup");
+    let img = document.getElementById("popupImg");
+
+    if(popup && img){
+      popup.style.display = "flex";
+      img.src = src;
+    }
+  };
+
+  window.closeImage = function(){
+    let popup = document.getElementById("imgPopup");
+    if(popup){
+      popup.style.display = "none";
+    }
+  };
+
+  /* =========================
+     🔍 SEARCH
+  ========================= */
+  const search = document.getElementById("search");
+  const suggestions = document.getElementById("suggestions");
+
+  if(search){
+    search.addEventListener("input", function(){
+
+      let value = search.value.toLowerCase().trim();
+      suggestions.innerHTML = "";
+
+      let results = [];
+
+      document.querySelectorAll(".card, .subjects p").forEach(el=>{
+        let text = el.innerText;
+
+        if(text.toLowerCase().includes(value)){
+          results.push(text);
+        }
       });
 
-      suggestions.style.display = "block";
-    } else {
-      suggestions.style.display = "none";
-    }
+      results = [...new Set(results)];
 
-  });
+      document.querySelectorAll(".card").forEach(card=>{
+        let text = card.innerText.toLowerCase();
+        card.style.display = text.includes(value) ? "block" : "none";
+      });
 
-}
+      if(value !== ""){
+        results.slice(0,5).forEach(item=>{
+          let div = document.createElement("div");
+          div.innerText = item;
 
-/* =========================
-   ❌ CLICK OUTSIDE CLOSE
-========================= */
-document.addEventListener("click", function(e){
-  if(!e.target.closest(".search-box")){
-    if(suggestions) suggestions.style.display = "none";
+          div.onclick = function(){
+            search.value = item;
+            suggestions.style.display = "none";
+          };
+
+          suggestions.appendChild(div);
+        });
+
+        suggestions.style.display = "block";
+      } else {
+        suggestions.style.display = "none";
+      }
+    });
+  }
+
+});
+/* 🔥 AUTO CLOSE ON SCROLL TOP */
+window.addEventListener("scroll", function(){
+  if(window.scrollY < 50){
+    document.querySelectorAll(".note-content").forEach(el=>{
+      el.style.display = "none";
+    });
   }
 });
 
-/* =========================
-   ✨ HERO TYPING EFFECT
-========================= */
-const text = "Unleash The Topper In You 🚀";
-let i = 0;
-
-function typing(){
-  let hero = document.getElementById("heroText");
-
-  if(hero && i < text.length){
-    hero.innerHTML += text.charAt(i);
-    i++;
-    setTimeout(typing, 40);
-  }
+/* 🔥 CLICK SOUND (optional cool effect) */
+function clickSound(){
+  let audio = new Audio("https://www.soundjay.com/buttons/sounds/button-3.mp3");
+  audio.play();
 }
 
-typing();
-
+/* 🔥 BUTTON SOUND APPLY */
+document.querySelectorAll(".btn").forEach(btn=>{
+  btn.addEventListener("click", clickSound);
 });
-window.toggleClass = function(id, btn){
 
-  let el = document.getElementById(id);
-
-  document.querySelectorAll(".subjects").forEach(s=>{
-    if(s !== el) s.style.display = "none";
-  });
-
-  el.style.display = (el.style.display === "block") ? "none" : "block";
-
-  document.querySelectorAll(".cat").forEach(c=>{
-    c.classList.remove("active");
-  });
-
-  if(btn) btn.classList.add("active");
+/* 🔥 LOADING EFFECT */
+window.onload = function(){
+  document.body.style.opacity = "1";
 };
-function autoScroll(){
-  let i = 0;
-  let scroll = setInterval(()=>{
-    window.scrollBy(0,1);
-    i++;
-
-    if(i > 500) clearInterval(scroll);
-  },10);
-}
-const quotes = [
-  "Study now, shine later 💯",
-  "No pain no gain 🔥",
-  "Topper बनने का time आ गया 🚀"
-];
-
-function randomQuote(){
-  let q = quotes[Math.floor(Math.random()*quotes.length)];
-  document.getElementById("quote").innerText = q;
-}
-
-setInterval(randomQuote,3000);
-function speak(text){
-  let msg = new SpeechSynthesisUtterance(text);
-  speechSynthesis.speak(msg);
-}
-let time = 0;
-let timer;
-
-function startTimer(){
-  timer = setInterval(()=>{
-    time++;
-    document.getElementById("timer").innerText = time + " sec";
-  },1000);
-}
-
-function stopTimer(){
-  clearInterval(timer);
-}
