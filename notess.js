@@ -200,23 +200,7 @@ document.addEventListener("mousemove", e=>{
   glow.style.left = e.clientX + "px";
   glow.style.top = e.clientY + "px";
 });
-document.addEventListener("click", e=>{
-  const ripple = document.createElement("span");
-  ripple.style.position = "fixed";
-  ripple.style.width = "20px";
-  ripple.style.height = "20px";
-  ripple.style.background = "rgba(99,102,241,0.5)";
-  ripple.style.borderRadius = "50%";
-  ripple.style.left = e.clientX + "px";
-  ripple.style.top = e.clientY + "px";
-  ripple.style.transform = "translate(-50%,-50%)";
-  ripple.style.pointerEvents = "none";
-  ripple.style.animation = "ripple 0.6s linear";
 
-  document.body.appendChild(ripple);
-
-  setTimeout(()=> ripple.remove(), 600);
-});
 document.querySelectorAll(".card").forEach(card=>{
   card.addEventListener("mousemove", e=>{
     const rect = card.getBoundingClientRect();
@@ -232,9 +216,9 @@ document.querySelectorAll(".card").forEach(card=>{
     card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
   });
 
-  card.addEventListener("mouseleave", ()=>{
-    card.style.transform = "rotateX(0) rotateY(0)";
-  });
+  // card.addEventListener("mouseleave", ()=>{
+  //   card.style.transform = "rotateX(0) rotateY(0)";
+  // });
 });
 const darkBtn = document.createElement("button");
 darkBtn.innerText = "🌙";
@@ -344,3 +328,4 @@ document.querySelectorAll(".card").forEach(c=>{
     }
   });
 });
+glow.remove();
