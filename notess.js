@@ -287,34 +287,8 @@ if(last !== today){
   localStorage.setItem("lastDay", today);
 }
 
-const streakEl = document.createElement("div");
-streakEl.innerText = `🔥 ${streak} day streak`;
-streakEl.style.position = "fixed";
-streakEl.style.top = "140px";
-streakEl.style.left = "20px";
-streakEl.style.background = "#f97316";
-streakEl.style.color = "white";
-streakEl.style.padding = "8px 10px";
-streakEl.style.borderRadius = "10px";
-streakEl.style.fontSize = "13px";
 
-document.body.appendChild(streakEl);
-/* 🎯 DAILY GOAL */
-let goal = parseInt(localStorage.getItem("goal") || "0");
 
-const goalBox = document.createElement("div");
-goalBox.style.position = "fixed";
-goalBox.style.top = "100px";
-goalBox.style.left = "20px";
-goalBox.style.background = "#22c55e";
-goalBox.style.color = "white";
-goalBox.style.padding = "8px 10px";
-goalBox.style.borderRadius = "10px";
-goalBox.style.fontSize = "13px";
-
-function renderGoal(){
-  goalBox.innerText = `🎯 Today: ${goal}/10 topics`;
-}
 renderGoal();
 document.body.appendChild(goalBox);
 
@@ -329,3 +303,34 @@ document.querySelectorAll(".card").forEach(c=>{
   });
 });
 glow.remove();
+/* 🔥 FORCE CLEANUP */
+document.querySelectorAll(".note-content").forEach(el=>{
+  el.style.position = "static";
+  el.style.left = "auto";
+  el.style.top = "auto";
+  el.style.transform = "none";
+});
+function openImage(src){
+  const popup = document.getElementById("imgPopup");
+  const img = document.getElementById("popupImg");
+
+  popup.style.display = "flex";
+  img.src = src;
+
+  document.body.style.overflow = "hidden";
+}
+
+function closeImage(){
+  document.getElementById("imgPopup").style.display = "none";
+  document.body.style.overflow = "auto";
+}
+function toggleClass(id){
+  const target = document.getElementById(id);
+  if(!target) return;
+
+  document.querySelectorAll(".subjects").forEach(el=>{
+    if(el !== target) el.classList.remove("active");
+  });
+
+  target.classList.toggle("active");
+}

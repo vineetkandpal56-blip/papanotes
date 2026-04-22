@@ -57,19 +57,16 @@
 
 <!-- CATEGORY -->
 <section class="categories fade-up">
-  <h2>Select Your Class</h2>
-  
+  <<h2 class="class-title">🎓 Select Your Class</h2>
+<p class="sub-text">Choose your class and start smart study 🚀</p>
 
-  <div class="cat-box">
-    <div class="cat-box">
-
-  <div class="cat" onclick="toggleClass('c8')">Class 8</div>
-  <div class="cat" onclick="toggleClass('c9')">Class 9</div>
-  <div class="cat" onclick="toggleClass('c10')">Class 10</div>
-  <div class="cat" onclick="toggleClass('c11')">Class 11</div>
-  <div class="cat" onclick="toggleClass('c12')">Class 12</div>
-  <div class="cat" onclick="toggleClass('bca')">BCA 🎓</div>
-
+<div class="cat-box">
+  <div class="cat" onclick="toggleClass('c8')">📘 Class 8</div>
+<div class="cat" onclick="toggleClass('c9')">📙 Class 9</div>
+<div class="cat" onclick="toggleClass('c10')">📗 Class 10</div>
+<div class="cat active" onclick="toggleClass('c11')">📕 Class 11</div>
+<div class="cat" onclick="toggleClass('c12')">📓 Class 12</div>
+<div class="cat" onclick="toggleClass('bca')">🎓 BCA</div>
 </div>
 
     
@@ -98,17 +95,21 @@
   </p>
 
   <!-- 👇 CHAPTERS (hidden by default) -->
-  <div id="science10" class="note-content">
-    
-    <div class="card" onclick="toggleNote('ch1')">
-      <h3>1. Chemical Reactions & Equations</h3>
-      <div id="ch1" class="note-content">
-        <div class="btn-box">
-          <a href="Chemical_Reactions_Class10.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('Chemical_Reactions_info.jpeg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
+  <div class="card">
+  <h3>1. Chemical Reactions & Equations</h3>
+  
+  
+</button>
+
+  <div class="btn-box">
+    <a href="Chemical_Reactions_Class10.pdf" class="btn pdf-btn">PDF</a>
+
+    <button class="btn info-btn"
+      onclick="openImage('Chemical_Reactions_info.jpeg')">
+      Info📊
+    </button>
+  </div>
+</div>
 
     <div class="card" onclick="toggleNote('ch2')">
       <h3>2. Acids, Bases & Salts</h3>
@@ -534,6 +535,9 @@
 </footer>
 
 <script src="notess.js"></script>
+<div id="imgPopup" class="img-popup" onclick="closeImage()">
+  <img id="popupImg" src="">
+</div>
 
 </body>
 </html>
