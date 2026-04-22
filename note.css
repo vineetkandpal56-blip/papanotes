@@ -575,3 +575,33 @@ footer{
   background:#020617;
   color:white;
 }
+/* 🔥 SEARCH ALWAYS CLICKABLE */
+.search-box{
+  position:relative;
+  z-index:9999;
+}
+
+/* input ko top pe lao */
+.search-box input{
+  position:relative;
+  z-index:10000;
+}
+
+/* suggestions */
+.suggestions{
+  position:absolute;
+  width:100%;
+  background:white;
+  z-index:10000;
+}
+
+/* 🔥 mobile touch fix */
+input, button{
+  pointer-events:auto;
+}
+
+/* 🔥 prevent overlap issues */
+.hero, .card, section{
+  position:relative;
+  z-index:1;
+}
