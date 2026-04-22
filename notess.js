@@ -324,3 +324,80 @@ function toggleClass(id){
 
   target.classList.toggle("active");
 }
+window.addEventListener("load", ()=>{
+  document.getElementById("loader").style.display = "none";
+});
+document.addEventListener("DOMContentLoaded", function(){
+
+  const search = document.getElementById("search");
+
+  search.addEventListener("input", function(){
+
+    const value = search.value.toLowerCase().trim();
+
+    if(value.length < 3) return; // छोटा text ignore
+
+    document.querySelectorAll(".card").forEach(card=>{
+
+      const text = card.innerText.toLowerCase();
+
+      if(text.includes(value)){
+
+        const pdf = card.querySelector(".pdf-btn");
+
+        if(pdf){
+          // 🔥 direct open PDF
+          window.open(pdf.href, "_blank");
+        }
+
+      }
+
+    });
+
+  });
+
+});
+document.addEventListener("DOMContentLoaded", function(){
+
+  // 🔥 card click = PDF open
+  document.querySelectorAll(".card").forEach(card=>{
+
+    card.addEventListener("click", function(e){
+
+      // अगर button पे click नहीं है
+      if(e.target.closest(".btn")) return;
+
+      const pdf = card.querySelector(".pdf-btn");
+
+      if(pdf){
+        window.open(pdf.href, "_blank");
+      }
+
+    });
+
+  });
+
+});
+document.querySelectorAll(".btn").forEach(btn=>{
+  btn.addEventListener("click", e => e.stopPropagation());
+});
+document.addEventListener("DOMContentLoaded", function(){
+
+  document.querySelectorAll(".card").forEach(card=>{
+
+    card.onclick = function(){
+
+      const pdf = this.querySelector(".pdf-btn");
+
+      if(pdf && pdf.href){
+        window.open(pdf.href, "_blank");
+      }
+
+    };
+
+  });
+
+});
+document.querySelectorAll(".btn").forEach(btn=>{
+  btn.addEventListener("click", e => e.stopPropagation());
+});

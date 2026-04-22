@@ -11,6 +11,16 @@
   gtag('config', 'G-G0ZSZNT3M0');
 </script>
   <meta name="google-site-verification" content="KwKXz7dbavoe0z3zYrjuUnHLo2ltd5LOJzb6hYoY4wk" />
+  <meta property="og:image" content="https://vineetkandpal56-blip.github.io/papanotes/logo.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PapaNotes",
+  "url": "https://vineetkandpal56-blip.github.io/papanotes",
+  "logo": "https://vineetkandpal56-blip.github.io/papanotes/logo.png"
+}
+</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PapaNotes - All Subjects Notes for Class 8, 9, 10, 11, 12 | Free Study Material</title>
@@ -20,12 +30,16 @@
   <link rel="icon" href="logo.png">
   <link rel="icon" type="image/png" sizes="32x32" href="logo.png">
 </head>
+<div id="loader">
+  <div class="spinner"></div>
+</div>
 
 <body>
   
 
 <!-- NAVBAR -->
 <nav class="navbar">
+  <a href="about.html">About</a>
   <h1><img src="logo.png" class="logo"> PapaNotes</h1>
 
   <div>
@@ -34,6 +48,7 @@
     <a href="#contact">Contact</a>
   </div>
 </nav>
+
 
 <!-- HERO -->
 <section class="hero fade-up">
@@ -44,12 +59,7 @@
 
   <!-- SEARCH -->
   <div class="search-box">
-    <input 
-      type="text" 
-      id="search" 
-      placeholder="🔍 Search chapters, notes..."
-      autocomplete="off"
-    >
+    <input id="search" placeholder="🔍 Find chapters fast...">
 
     <div id="suggestions" class="suggestions"></div>
   </div>
@@ -57,7 +67,7 @@
 
 <!-- CATEGORY -->
 <section class="categories fade-up">
-  <<h2 class="class-title">🎓 Select Your Class</h2>
+  <h2 class="class-title">🎓 Select Your Class</h2>
 <p class="sub-text">Choose your class and start smart study 🚀</p>
 
 <div class="cat-box">
@@ -102,9 +112,11 @@
 </button>
 
   <div class="btn-box">
+    
     <a href="Chemical_Reactions_Class10.pdf" class="btn pdf-btn">PDF</a>
 
     <button class="btn info-btn"
+    
       onclick="openImage('Chemical_Reactions_info.jpeg')">
       Info📊
     </button>
@@ -528,16 +540,78 @@
     📧 papanotes01@gmail.com
   </a>
 </section>
+<section class="about-section">
 
+  <div class="about-box">
+
+    <h1>About PapaNotes 📚</h1>
+
+    <p class="about-intro">
+      Welcome to <b>PapaNotes</b> – your smart study partner 🚀
+    </p>
+
+    <p class="about-desc">
+      We provide high-quality, easy-to-understand notes for Class 8–12 & BCA students.
+    </p>
+
+    <div class="about-grid">
+
+      <div class="about-card">
+        <h3>🎯 Our Mission</h3>
+        <ul>
+          <li>Short & clear notes</li>
+          <li>Important topics</li>
+          <li>Easy explanations</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>📘 What We Offer</h3>
+        <ul>
+          <li>Subject-wise notes</li>
+          <li>Chapter summaries</li>
+          <li>Quick revision</li>
+        </ul>
+      </div>
+
+      <div class="about-card">
+        <h3>💡 Why Choose Us</h3>
+        <ul>
+          <li>Simple language</li>
+          <li>Time-saving</li>
+          <li>Free access</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 <!-- FOOTER -->
 <footer>
   <p>© 2026 PapaNotes</p>
 </footer>
+<script>
+  window.onload = function(){
+    var loader = document.getElementById("loader");
+    if(loader){
+      loader.style.display = "none";
+    }
+  };
+  
+</script>
+</script>
+<script>
+  setTimeout(()=>{
+    const loader = document.getElementById("loader");
+    if(loader) loader.style.display="none";
+  },2000);
+</script>
 
 <script src="notess.js"></script>
 <div id="imgPopup" class="img-popup" onclick="closeImage()">
   <img id="popupImg" src="">
 </div>
-
 </body>
 </html>
