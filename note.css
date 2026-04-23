@@ -1245,3 +1245,27 @@ nav.scrolled{
   transform: translateY(-50%) scale(1.2);
   background: rgba(0,0,0,0.9);
 }
+.hero-text{
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+
+  color: #00e5ff;  /* 🔥 bright cyan */
+
+  text-shadow: 0 0 10px rgba(0,229,255,0.7),
+               0 0 20px rgba(0,229,255,0.5);
+
+  margin-top: 10px;
+}
+/* ऊपर वाला */
+.tagline{
+  color: #ffd54f;   /* yellow */
+  font-weight: bold;
+}
+/* 🔥 Heading (heroText) */
+.hero p{
+  color: #4fc3f7;
+  text-align: center;
+  font-weight: 500;
+}
+
