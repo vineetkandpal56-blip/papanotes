@@ -122,21 +122,52 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =========================
      📷 IMAGE POPUP
   ========================= */
-  window.openImage = (src) => {
-    const popup = document.getElementById("imgPopup");
-    const img = document.getElementById("popupImg");
+ let images = [];
+let current = 0;
 
-    popup.style.display = "flex";
-    img.src = src;
+window.openImage = function(imgArray){
+  if(!Array.isArray(imgArray) || imgArray.length === 0){
+    console.log("❌ images array galat hai:", imgArray);
+    return;
+  }
 
-    document.body.style.overflow = "hidden";
-  };
+  images = imgArray;
+  current = 0;
 
-  window.closeImage = () => {
-    document.getElementById("imgPopup").style.display = "none";
-    document.body.style.overflow = "auto";
-  };
+  const popup = document.getElementById("imgPopup");
+  const img = document.getElementById("popupImg");
 
+  if(!popup || !img){
+    console.log("❌ popup ya img id nahi mila");
+    return;
+  }
+
+  popup.style.display = "flex";
+  img.src = images[current];
+  document.body.style.overflow = "hidden";
+
+  console.log("✅ openImage working:", images);
+};
+
+window.nextImage = function(){
+  console.log("NEXT CLICKED", images);
+
+  if(images.length <= 1) return;
+
+  current = (current + 1) % images.length;
+  document.getElementById("popupImg").src = images[current];
+};
+
+window.prevImage = function(){
+  if(images.length === 0) return;
+  current = (current - 1 + images.length) % images.length;
+  document.getElementById("popupImg").src = images[current];
+};
+
+window.closeImage = function(){
+  document.getElementById("imgPopup").style.display = "none";
+  document.body.style.overflow = "auto";
+};
   /* =========================
      ✨ SCROLL ANIMATION
   ========================= */
@@ -300,20 +331,7 @@ document.querySelectorAll(".note-content").forEach(el=>{
   el.style.top = "auto";
   el.style.transform = "none";
 });
-function openImage(src){
-  const popup = document.getElementById("imgPopup");
-  const img = document.getElementById("popupImg");
 
-  popup.style.display = "flex";
-  img.src = src;
-
-  document.body.style.overflow = "hidden";
-}
-
-function closeImage(){
-  document.getElementById("imgPopup").style.display = "none";
-  document.body.style.overflow = "auto";
-}
 function toggleClass(id){
   const target = document.getElementById(id);
   if(!target) return;

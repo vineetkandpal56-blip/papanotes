@@ -107,147 +107,199 @@
     Science 📚
   </p>
 
-  <!-- 👇 CHAPTERS (hidden by default) -->
-  <div class="card">
+  <!-- 👇 HIDDEN SCIENCE CONTENT -->
+  <div id="science10" class="note-content">
+
+    <!-- ✅ CHAPTER 1 -->
+    <!-- 1 -->
+<div class="card">
   <h3>1. Chemical Reactions & Equations</h3>
-  
-  
-</button>
-
   <div class="btn-box">
-    
-    <a href="Chemical_Reactions_Class10.pdf" class="btn pdf-btn">PDF</a>
-
+    <a href="Chemical_Reactions_Class10.pdf" class="btn pdf-btn" target="_blank">PDF</a>
     <button class="btn info-btn"
-    
-      onclick="openImage('Chemical_Reactions_info.jpeg')">
+      onclick="event.stopPropagation(); openImage([
+        'Chemical_Reactions_info.jpeg',
+        'goldenrules.jpeg',
+        'OxidationReduction.jpeg',
+        'CO2turn.jpeg',
+        'reactivityseriesofmetals.jpeg',
+        'common.jpeg',
+        'electrolyticofwater.jpeg'
+
+      ])">
       Info📊
     </button>
   </div>
 </div>
+  
 
-    <div class="card" onclick="toggleNote('ch2')">
-      <h3>2. Acids, Bases & Salts</h3>
-      <div id="ch2" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch2.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch2.jpg')">📊 Infographic</button>
-        </div>
-      </div>
+<!-- 2 -->
+<div class="card" onclick="toggleNote('ch2')">
+  <h3>2. Acids, Bases & Salts</h3>
+  <div id="ch2" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch2.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch2.jpg'])">
+        Info📊
+      </button>
     </div>
-
-    <div class="card" onclick="toggleNote('ch3')">
-      <h3>3. Metals & Non-Metals</h3>
-      <div id="ch3" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch3.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch3.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch4')">
-      <h3>4. Carbon & Its Compounds</h3>
-      <div id="ch4" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch4.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch4.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch5')">
-      <h3>5. Life Processes</h3>
-      <div id="ch5" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch5.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch5.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch6')">
-      <h3>6. Control & Coordination</h3>
-      <div id="ch6" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch6.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch6.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch7')">
-      <h3>7. How do Organisms Reproduce</h3>
-      <div id="ch7" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch7.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch7.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch8')">
-      <h3>8. Heredity & Evolution</h3>
-      <div id="ch8" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch8.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch8.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch9')">
-      <h3>9. Light - Reflection & Refraction</h3>
-      <div id="ch9" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch9.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch9.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch10')">
-      <h3>10. Human Eye & Colourful World</h3>
-      <div id="ch10" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch10.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch10.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch11')">
-      <h3>11. Electricity</h3>
-      <div id="ch11" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch11.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch11.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch12')">
-      <h3>12. Magnetic Effects of Electric Current</h3>
-      <div id="ch12" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch12.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch12.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="card" onclick="toggleNote('ch13')">
-      <h3>13. Our Environment</h3>
-      <div id="ch13" class="note-content">
-        <div class="btn-box">
-          <a href="pdf/ch13.pdf" target="_blank" class="btn pdf-btn">📄 PDF</a>
-          <button class="btn info-btn" onclick="event.stopPropagation(); openImage('images/ch13.jpg')">📊 Infographic</button>
-        </div>
-      </div>
-    </div>
-
   </div>
+</div>
 
+<!-- 3 -->
+<div class="card" onclick="toggleNote('ch3')">
+  <h3>3. Metals & Non-Metals</h3>
+  <div id="ch3" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch3.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch3.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="card" onclick="toggleNote('ch4')">
+  <h3>4. Carbon & Its Compounds</h3>
+  <div id="ch4" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch4.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch4.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="card" onclick="toggleNote('ch5')">
+  <h3>5. Life Processes</h3>
+  <div id="ch5" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch5.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch5.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="card" onclick="toggleNote('ch6')">
+  <h3>6. Control & Coordination</h3>
+  <div id="ch6" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch6.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch6.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="card" onclick="toggleNote('ch7')">
+  <h3>7. How do Organisms Reproduce</h3>
+  <div id="ch7" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch7.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch7.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="card" onclick="toggleNote('ch8')">
+  <h3>8. Heredity & Evolution</h3>
+  <div id="ch8" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch8.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch8.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="card" onclick="toggleNote('ch9')">
+  <h3>9. Light - Reflection & Refraction</h3>
+  <div id="ch9" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch9.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch9.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="card" onclick="toggleNote('ch10')">
+  <h3>10. Human Eye & Colourful World</h3>
+  <div id="ch10" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch10.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch10.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 11 -->
+<div class="card" onclick="toggleNote('ch11')">
+  <h3>11. Electricity</h3>
+  <div id="ch11" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch11.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch11.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 12 -->
+<div class="card" onclick="toggleNote('ch12')">
+  <h3>12. Magnetic Effects of Electric Current</h3>
+  <div id="ch12" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch12.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch12.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- 13 -->
+<div class="card" onclick="toggleNote('ch13')">
+  <h3>13. Our Environment</h3>
+  <div id="ch13" class="note-content">
+    <div class="btn-box">
+      <a href="pdf/ch13.pdf" class="btn pdf-btn">PDF</a>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openImage(['images/ch13.jpg'])">
+        Info📊
+      </button>
+    </div>
+  </div>
+</div>
 </section>
 
     
@@ -512,9 +564,7 @@
 </section>
 
 <!-- IMAGE POPUP -->
-<div id="imgPopup" class="img-popup" onclick="closeImage()">
-  <img id="popupImg">
-</div>
+
 
 <!-- FEATURES -->
 <section class="features fade-up">
@@ -615,9 +665,21 @@
   },2000);
 </script>
 
+
+
 <script src="notess.js"></script>
-<div id="imgPopup" class="img-popup" onclick="closeImage()">
-  <img id="popupImg" src="">
+
+<div id="imgPopup" class="img-popup" style="display:none;">
+
+  <span class="close" onclick="closeImage()">❌</span>
+
+  <button class="prev" onclick="prevImage()">⬅</button>
+
+  <img id="popupImg">
+
+  <button class="next" onclick="nextImage()">➡</button>
+
 </div>
 </body>
+
 </html>
