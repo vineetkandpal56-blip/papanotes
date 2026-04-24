@@ -1266,16 +1266,47 @@ nav.scrolled{
   text-align: center;
   font-weight: 500;
 }
-.prev, .next {
-  font-size: 15px;       /* arrow invisible */
-  width: 0;           /* size zero */
-  height: 0;
-  padding: 0;
-  border: none;
-  background: transparent;
+/* container safe rakho */
+.slider-container {
+  position: relative;
+  overflow: hidden; /* arrow bahar nahi jayega */
 }
-.sub-text {
-  color: #000;          /* dark black */
-  margin-top: -10px;   /* thoda upar le aayega */
-  font-weight: 500;    /* thoda bold look */
+
+/* arrows */
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  
+  font-size: 22px;
+  width: 35px;
+  height: 35px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(244, 244, 244, 0.5);
+  color: #fff;
+  border-radius: 50%;
+
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* left arrow */
+.prev {
+  left: 5px;  /* screen ke andar */
+}
+
+/* right arrow */
+.next {
+  right: 5px; /* screen ke andar */
+}
+@media (max-width: 600px) {
+  .prev, .next {
+    font-size: 18px;
+    width: 30px;
+    height: 30px;
+  }
 }
