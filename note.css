@@ -211,21 +211,7 @@ body{
 }
 
 /* ===== POPUP ===== */
-.img-popup{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.8);
-  justify-content:center;
-  align-items:center;
-}
 
-.img-popup img{
-  max-width:90%;
-}
 
 /* ===== FEATURES ===== */
 .features{
@@ -657,24 +643,7 @@ input, button{
   position:relative;
   overflow:visible;
 }
-.img-popup{
-  display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  justify-content:center;
-  align-items:center;
-  z-index:99999;
-}
 
-.img-popup img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:10px;
-}
 .sub-text{
   color:#6b7280;
   font-size:14px;
@@ -1109,47 +1078,6 @@ nav.scrolled{
   border-color:#6366f1;
   box-shadow:0 0 8px rgba(99,102,241,0.3);
 }
-.img-popup{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  justify-content:center;
-  align-items:center;
-  z-index:9999;
-}
-
-.img-popup img{
-  max-width:90%;
-  max-height:80%;
-  border-radius:10px;
-}
-
-.close{
-  position:absolute;
-  top:20px;
-  right:30px;
-  font-size:30px;
-  color:white;
-  cursor:pointer;
-}
-
-.prev, .next{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  font-size:30px;
-  background:none;
-  border:none;
-  color:white;
-  cursor:pointer;
-}
-
-.prev{ left:20px; }
-.next{ right:20px; }
 
 .subjects{
   display: none;
@@ -1166,84 +1094,17 @@ nav.scrolled{
 .note-content.active{
   display: block;
 }
-.prev, .next{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  
-  font-size: 60px;   /* 🔥 size increase */
-  padding: 10px 15px;
 
-  background: rgba(0,0,0,0.5);
-  border: none;
-  color: white;
-  cursor: pointer;
-
-  border-radius: 10px;
-}
-
-.prev{ left: 20px; }
-.next{ right: 20px; }
-.prev:hover, .next:hover{
-  background: rgba(0,0,0,0.8);
-  transform: translateY(-50%) scale(1.2);
-}
 /* POPUP */
-.img-popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.8);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-/* 👇 IMAGE SIZE CONTROL */
-#popupImg {
-  max-width: 60%;   /* पहले 80–90 होगा, अब छोटा */
-  max-height: 60%;
-  border-radius: 10px;
-}
 
-/* 👇 CLOSE BUTTON */
-.close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-size: 25px;
-  color: white;
-  cursor: pointer;
-}
 
-/* 👇 ARROWS */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  
-  font-size: 30px;
-  color: white;
-  
-  background: transparent;   /* 🔥 transparent */
-  border: none;              /* 🔥 no box */
-  
-  cursor: pointer;
-  padding: 10px;
-}
-
-.prev { left: 20px; }
-.next { right: 20px; }
 
 /* 👇 hover effect (optional) */
 .prev:hover, .next:hover {
   color: #00ffff; /* light glow */
 }
 
-.prev{ left: 30px; }
-.next{ right: 30px; }
 
 /* hover effect */
 .prev:hover, .next:hover{
@@ -1272,37 +1133,8 @@ nav.scrolled{
   overflow: hidden; /* arrow bahar nahi jayega */
 }
 
-/* arrows */
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  
-  font-size: 22px;
-  width: 35px;
-  height: 35px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
-  background: rgba(244, 244, 244, 0.5);
-  color: #fff;
-  border-radius: 50%;
-
-  cursor: pointer;
-  z-index: 10;
-}
-
-/* left arrow */
-.prev {
-  left: 5px;  /* screen ke andar */
-}
-
-/* right arrow */
-.next {
-  right: 5px; /* screen ke andar */
-}
 @media (max-width: 600px) {
   .prev, .next {
     font-size: 18px;
@@ -1310,3 +1142,273 @@ nav.scrolled{
     height: 30px;
   }
 }
+/* ===== FINAL POPUP (CLEAN) ===== */
+
+/* ===== FINAL POPUP FIX ===== */
+
+#imgPopup{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0,0,0,0.95);
+  z-index: 999999;
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+}
+
+#imgPopup.show{
+  display: flex;
+}
+
+/* IMAGE CENTER + SIZE */
+#popupImg{
+  position: absolute;     /* 🔥 lock */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);  /* 🔥 exact center */
+
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+/* CLOSE BUTTON */
+.close{
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+/* ARROWS */
+.prev, .next{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 28px;
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: white;
+  color: black;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.prev{ left: 20px; }
+.next{ right: 20px; }
+/* ===== FORCE CENTER POPUP (FINAL) ===== */
+
+html, body{
+  margin: 0 !important;
+  height: 100% !important;
+}
+
+#imgPopup{
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background: rgba(241, 236, 246, 0.655) !important;
+  z-index: 999999 !important;
+
+  display: none !important;
+}
+
+/* OPEN STATE */
+#imgPopup.show{
+  display: grid !important;
+  place-items: center !important;   /* 🔥 PERFECT CENTER */
+}
+
+/* IMAGE */
+#popupImg{
+  max-width: 90vw !important;
+  max-height: 90vh !important;
+  object-fit: contain !important;
+  border-radius: 12px !important;
+
+  position: static !important;
+  transform: none !important;
+  margin: 0 !important;
+}
+
+/* BUTTONS SAFE */
+.close, .prev, .next{
+  z-index: 1000000 !important;
+}
+/* POPUP FULL SCREEN FIX */
+#imgPopup{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0,0,0,0.95);
+  z-index: 999999;
+
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔥 ये main है */
+#imgPopup.show{
+  display: flex !important;
+}
+/* ===== BCA SECTION PREMIUM LOOK ===== */
+
+#bca{
+  margin-top: 20px;
+}
+
+/* PYQ heading */
+#bca > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #6a11cb;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* cards */
+#bca .card{
+  background: linear-gradient(135deg, #f5f7fa, #e4e9f7);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* hover effect */
+#bca .card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* headings */
+#bca .card h3{
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+/* text */
+#bca .card p{
+  color: #555;
+  font-size: 14px;
+}
+
+/* buttons */
+#bca .btn{
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+/* PDF button */
+#bca .pdf-btn{
+  background: linear-gradient(135deg, #00c853, #00e676);
+  color: white;
+}
+
+/* Info button */
+#bca .info-btn{
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+}
+
+/* hidden content */
+#bca .note-content{
+  margin-top: 10px;
+}
+/* ===== CLASS 10 PREMIUM LOOK ===== */
+
+#c10{
+  margin-top: 20px;
+}
+
+/* Science heading */
+#c10 > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #2575fc;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* cards */
+#c10 .card{
+  background: linear-gradient(135deg, #f5f7fa, #e4e9f7);
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* hover */
+#c10 .card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* headings */
+#c10 .card h3{
+  color: #2c3e50;
+}
+
+/* text */
+#c10 .card p{
+  color: #555;
+  font-size: 14px;
+}
+
+/* buttons */
+#c10 .btn{
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+/* PDF button */
+#c10 .pdf-btn{
+  background: linear-gradient(135deg, #00c853, #00e676);
+  color: white;
+}
+
+/* Info button */
+#c10 .info-btn{
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+}
+
+/* hidden content */
+#c10 .note-content{
+  margin-top: 10px;
+}
+

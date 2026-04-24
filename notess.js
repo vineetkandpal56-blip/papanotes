@@ -142,7 +142,7 @@ window.openImage = function(imgArray){
     return;
   }
 
-  popup.style.display = "flex";
+  popup.classList.add("show");   // 🔥 FINAL FIX
   img.src = images[current];
   document.body.style.overflow = "hidden";
 
@@ -165,7 +165,7 @@ window.prevImage = function(){
 };
 
 window.closeImage = function(){
-  document.getElementById("imgPopup").style.display = "none";
+  document.getElementById("imgPopup").classList.remove("show");
   document.body.style.overflow = "auto";
 };
   /* =========================
@@ -382,17 +382,16 @@ document.addEventListener("DOMContentLoaded", function(){
 
     card.addEventListener("click", function(e){
 
-      // अगर button पे click नहीं है
-      if(e.target.closest(".btn")) return;
+  // 🔥 IMPORTANT FIX
+  if(e.target.closest("select") || e.target.closest(".btn")) return;
 
-      const pdf = card.querySelector(".pdf-btn");
+  const pdf = card.querySelector(".pdf-btn");
 
-      if(pdf){
-        window.open(pdf.href, "_blank");
-      }
+  if(pdf){
+    window.open(pdf.href, "_blank");
+  }
 
-    });
-
+});
   });
 
 });
@@ -419,3 +418,66 @@ document.addEventListener("DOMContentLoaded", function(){
 document.querySelectorAll(".btn").forEach(btn=>{
   btn.addEventListener("click", e => e.stopPropagation());
 });
+window.openPDF = function(select){
+  const url = select.value;
+
+  if(!url) return;
+
+  // dropdown close
+  select.blur();
+
+  // delay to avoid conflict
+  setTimeout(() => {
+    window.open(url, "_blank");
+  }, 100);
+};
+// 🔥 FINAL WORKING DROPDOWN FIX
+document.addEventListener("DOMContentLoaded", function(){
+
+  const select = document.getElementById("pdfSelect1");
+
+  if(select){
+    select.addEventListener("change", function(e){
+
+      e.stopPropagation();
+
+      const url = this.value;
+
+      if(url){
+        window.open(url, "_blank");
+        this.value = "";
+      }
+
+    });
+  }
+
+});
+let images = [];
+let current = 0;
+
+function openImage(arr){
+  images = arr;
+  current = 0;
+
+  document.getElementById("imgPopup").classList.add("show");
+  document.getElementById("popupImg").src = images[0];
+
+  document.body.style.overflow = "hidden"; // 🔥 ADD THIS
+}
+
+function closeImage(){
+  document.getElementById("imgPopup").classList.remove("show");
+  document.body.style.overflow = "auto";
+}
+
+function nextImage(){
+  if(images.length <= 1) return;
+  current = (current + 1) % images.length;
+  document.getElementById("popupImg").src = images[current];
+}
+
+function prevImage(){
+  if(images.length <= 1) return;
+  current = (current - 1 + images.length) % images.length;
+  document.getElementById("popupImg").src = images[current];
+}
