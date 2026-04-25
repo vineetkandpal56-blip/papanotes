@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Info</title>
+
+  <style>
+    body{
+      margin:0;
+      background:black;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+      overflow:hidden;
+      font-family:sans-serif;
+    }
+
+    img{
+      max-width:95vw;
+      max-height:90vh;
+      object-fit:contain;
+      transition:0.3s ease;
+      transform: scale(1);
+    }
+
+    button{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      font-size:20px;
+      background:rgba(255,255,255,0.2);
+      border:none;
+      color:white;
+      cursor:pointer;
+      padding:10px;
+      border-radius:50%;
+    }
+
+    #prev{ left:10px; }
+    #next{ right:10px; }
+
+    .top-btn{
+      position:absolute;
+      top:15px;
+      font-size:18px;
+      background:rgba(255,255,255,0.2);
+      border:none;
+      color:white;
+      cursor:pointer;
+      padding:8px 12px;
+      border-radius:8px;
+    }
+
+    #close{ right:20px; }
+    #download{ left:20px; }
+    #share{ left:100px; }
+    #fullscreen{ left:170px; }
+
+    .count{
+      position:absolute;
+      bottom:15px;
+      color:white;
+      font-size:14px;
+    }
+
+    .control{
+      position:absolute;
+      bottom:50px;
+      color:white;
+      cursor:pointer;
+      background:rgba(255,255,255,0.2);
+      padding:8px 12px;
+      border-radius:8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BUTTONS -->
+  <button id="download" class="top-btn">⬇️</button>
+  <button id="share" class="top-btn">🔗</button>
+  <button id="fullscreen" class="top-btn">⛶</button>
+  <button id="close" class="top-btn" onclick="window.close()">✖</button>
+
+  <!-- SLIDER -->
+  <button id="prev">❮</button>
+  <img id="img">
+  <button id="next">❯</button>
+
+  <!-- COUNTER -->
+  <div class="count" id="count"></div>
+
+  <!-- PLAY/PAUSE -->
+  <div class="control" id="playPause">⏸ Pause</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const images = JSON.parse(decodeURIComponent(params.get("imgs")));
+
+    let index = 0;
+    let scale = 1;
+    let playing = true;
+
+    const img = document.getElementById("img");
+    const count = document.getElementById("count");
+
+    function show(){
+      img.src = images[index];
+      count.innerText = (index+1) + " / " + images.length;
+      scale = 1;
+      img.style.transform = "scale(1)";
+    }
+
+    // next / prev
+    document.getElementById("next").onclick = () => {
+      index = (index + 1) % images.length;
+      show();
+    };
+
+    document.getElementById("prev").onclick = () => {
+      index = (index - 1 + images.length) % images.length;
+      show();
+    };
+
+    // swipe
+    let startX = 0;
+
+    img.addEventListener("touchstart", e=>{
+      startX = e.touches[0].clientX;
+    });
+
+    img.addEventListener("touchend", e=>{
+      let endX = e.changedTouches[0].clientX;
+
+      if(startX - endX > 50){
+        index = (index + 1) % images.length;
+      }
+      else if(endX - startX > 50){
+        index = (index - 1 + images.length) % images.length;
+      }
+
+      show();
+    });
+
+    // double tap zoom
+    let lastTap = 0;
+
+    img.addEventListener("touchend", function(){
+      let now = new Date().getTime();
+      if(now - lastTap < 300){
+        scale = scale === 1 ? 2 : 1;
+        img.style.transform = `scale(${scale})`;
+      }
+      lastTap = now;
+    });
+
+    // pinch zoom
+    let startDist = 0;
+
+    img.addEventListener("touchstart", e=>{
+      if(e.touches.length === 2){
+        startDist = getDistance(e.touches);
+      }
+    });
+
+    img.addEventListener("touchmove", e=>{
+      if(e.touches.length === 2){
+        let newDist = getDistance(e.touches);
+        scale = newDist / startDist;
+        img.style.transform = `scale(${scale})`;
+      }
+    });
+
+    function getDistance(t){
+      let dx = t[0].clientX - t[1].clientX;
+      let dy = t[0].clientY - t[1].clientY;
+      return Math.sqrt(dx*dx + dy*dy);
+    }
+
+    // auto slideshow
+    let auto = setInterval(()=>{
+      if(playing){
+        index = (index + 1) % images.length;
+        show();
+      }
+    }, 4000);
+
+    // play/pause
+    document.getElementById("playPause").onclick = ()=>{
+      playing = !playing;
+      document.getElementById("playPause").innerText = playing ? "⏸ Pause" : "▶ Play";
+    };
+
+    // download
+    document.getElementById("download").onclick = ()=>{
+      let a = document.createElement("a");
+      a.href = images[index];
+      a.download = "";
+      a.click();
+    };
+
+    // share
+    document.getElementById("share").onclick = ()=>{
+      navigator.share && navigator.share({url: images[index]});
+    };
+
+    // fullscreen
+    document.getElementById("fullscreen").onclick = ()=>{
+      if(document.fullscreenElement){
+        document.exitFullscreen();
+      } else {
+        document.documentElement.requestFullscreen();
+      }
+    };
+
+    show();
+    
+  </script>
+  
+
+</body>
+</html>

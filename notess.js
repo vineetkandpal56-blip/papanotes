@@ -455,29 +455,21 @@ document.addEventListener("DOMContentLoaded", function(){
 let images = [];
 let current = 0;
 
-function openImage(arr){
-  images = arr;
-  current = 0;
-
-  document.getElementById("imgPopup").classList.add("show");
-  document.getElementById("popupImg").src = images[0];
-
-  document.body.style.overflow = "hidden"; // 🔥 ADD THIS
+function openInfo(img){
+  window.open(`info.html?img=${img}`, "_blank");
+}function openInfo(images){
+  let data = encodeURIComponent(JSON.stringify(images));
+  window.open("info.html?imgs=" + data, "_blank");
 }
-
-function closeImage(){
-  document.getElementById("imgPopup").classList.remove("show");
-  document.body.style.overflow = "auto";
+function toggleNote(id){
+  let el = document.getElementById(id);
+  if(el.style.display === "block"){
+    el.style.display = "none";
+  } else {
+    el.style.display = "block";
+  }
 }
-
-function nextImage(){
-  if(images.length <= 1) return;
-  current = (current + 1) % images.length;
-  document.getElementById("popupImg").src = images[current];
-}
-
-function prevImage(){
-  if(images.length <= 1) return;
-  current = (current - 1 + images.length) % images.length;
-  document.getElementById("popupImg").src = images[current];
+function openInfo(images){
+  const data = encodeURIComponent(JSON.stringify(images));
+  window.open("info.html?imgs=" + data, "_blank");
 }

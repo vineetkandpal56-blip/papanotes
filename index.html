@@ -126,16 +126,17 @@ Simple and exam-focused content for better preparation.
   </div>
 
   <button class="btn info-btn"
-    onclick="event.stopPropagation(); openImage([
-      'Chemical_Reactions_info.jpeg',
-      'goldenrules.jpeg',
-      'OxidationReduction.jpeg',
-      'CO2turn.jpeg',
-      'reactivityseriesofmetals.jpeg',
-      'common.jpeg',
-      'electrolyticofwater.jpeg'
-    ])">
-    Info📊
+onclick="event.stopPropagation(); openInfo([
+  'Chemical_Reactions_info.jpeg',
+  'goldenrules.jpeg',
+  'OxidationReduction.jpeg',
+  'CO2turn.jpeg',
+  'reactivityseriesofmetals.jpeg',
+  'common.jpeg',
+  'electrolyticofwater.jpeg'
+])">
+  Info📊
+
   </button>
 </div>
 
@@ -318,13 +319,19 @@ Practice previous year questions to improve exam preparation.
 
       <!-- Info working -->
       <button class="btn info-btn"
-        onclick="event.stopPropagation(); openImage(['degree-of-association and disscoiation.jpeg','azeotrope1.jpeg', 'colligative.2.jpeg','chatelier.3.jpeg'])">
-        Info📊
-      </button>
+onclick="event.stopPropagation(); openInfo([
+  'degree.jpeg',
+  'azeotrope.jpeg',
+  'colligative.jpeg',
+  'chatelier.3.jpeg'
+])">
+  Info📊
+</button>
 
     </div>
   </div>
-</div>
+  </div>
+  
 
   
 <!-- 2 -->
@@ -339,7 +346,7 @@ Practice previous year questions to improve exam preparation.
       <button class="btn pdf-btn disabled-btn" disabled>PDF (Coming Soon)</button>
       <!-- Info working -->
       <button class="btn info-btn"
-        onclick="event.stopPropagation(); openImage(['chapter2-cell-sign-convention.jpeg'])">
+        onclick="event.stopPropagation(); openInfo(['chapter2-cell-sign-convention.jpeg'])">
         Info📊
       </button>
 
@@ -668,15 +675,17 @@ Practice previous year questions to improve exam preparation.
 
 <script src="notess.js"></script>
 
-<div id="imgPopup">
-  <span onclick="closeImage()" class="close">❌</span>
+<!-- page ka sab content ... -->
 
-  <button onclick="prevImage()" class="prev">⬅</button>
-
-  <img id="popupImg">
-
-  <button onclick="nextImage()" class="next">➡</button>
+<!-- 🔥 POPUP (body ke end me, last element) -->
+<div id="imgPopup" onclick="closeImage()">
+  <span class="close" onclick="event.stopPropagation(); closeImage()">✖</span>
+  <img id="popupImg" alt="preview" />
+  <button class="prev" onclick="event.stopPropagation(); prevImage()">❮</button>
+  <button class="next" onclick="event.stopPropagation(); nextImage()">❯</button>
 </div>
+
+</body>
 </body>
 
 </html>

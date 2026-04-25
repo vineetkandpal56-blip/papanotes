@@ -1144,135 +1144,6 @@ nav.scrolled{
 }
 /* ===== FINAL POPUP (CLEAN) ===== */
 
-/* ===== FINAL POPUP FIX ===== */
-
-#imgPopup{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background: rgba(0,0,0,0.95);
-  z-index: 999999;
-
-  display: none;
-
-  justify-content: center;
-  align-items: center;
-}
-
-#imgPopup.show{
-  display: flex;
-}
-
-/* IMAGE CENTER + SIZE */
-#popupImg{
-  position: absolute;     /* 🔥 lock */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);  /* 🔥 exact center */
-
-  max-width: 90vw;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 12px;
-}
-
-/* CLOSE BUTTON */
-.close{
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  color: white;
-  font-size: 25px;
-  cursor: pointer;
-}
-
-/* ARROWS */
-.prev, .next{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-
-  font-size: 28px;
-  width: 40px;
-  height: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: white;
-  color: black;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-
-.prev{ left: 20px; }
-.next{ right: 20px; }
-/* ===== FORCE CENTER POPUP (FINAL) ===== */
-
-html, body{
-  margin: 0 !important;
-  height: 100% !important;
-}
-
-#imgPopup{
-  position: fixed !important;
-  inset: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  background: rgba(241, 236, 246, 0.655) !important;
-  z-index: 999999 !important;
-
-  display: none !important;
-}
-
-/* OPEN STATE */
-#imgPopup.show{
-  display: grid !important;
-  place-items: center !important;   /* 🔥 PERFECT CENTER */
-}
-
-/* IMAGE */
-#popupImg{
-  max-width: 90vw !important;
-  max-height: 90vh !important;
-  object-fit: contain !important;
-  border-radius: 12px !important;
-
-  position: static !important;
-  transform: none !important;
-  margin: 0 !important;
-}
-
-/* BUTTONS SAFE */
-.close, .prev, .next{
-  z-index: 1000000 !important;
-}
-/* POPUP FULL SCREEN FIX */
-#imgPopup{
-  position: fixed;
-  inset: 0;
-  width: 100vw;
-  height: 100vh;
-
-  background: rgba(0,0,0,0.95);
-  z-index: 999999;
-
-  display: none;
-
-  justify-content: center;
-  align-items: center;
-}
-
-/* 🔥 ये main है */
-#imgPopup.show{
-  display: flex !important;
-}
-/* ===== BCA SECTION PREMIUM LOOK ===== */
 
 #bca{
   margin-top: 20px;
@@ -1411,4 +1282,79 @@ html, body{
 #c10 .note-content{
   margin-top: 10px;
 }
+/* FULL SCREEN OVERLAY */
+/* ===== FULL SCREEN OVERLAY ===== */
+/* ===== POPUP ===== */
+/* ===== FINAL POPUP (ONLY ONE) ===== */
 
+#imgPopup{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.95);
+  z-index: 999999;
+
+  display: none;
+
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 60px 10px;
+}
+
+#imgPopup.show{
+  display: block;
+}
+
+/* IMAGE */
+#popupImg{
+  display: block;
+  margin: 0 auto;
+
+  width: 100%;
+  max-width: 900px;
+  height: auto;
+
+  border-radius: 10px;
+}
+
+/* CLOSE */
+.close{
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* ARROWS */
+.prev, .next{
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255,255,255,0.2);
+  color: white;
+}
+
+.prev{ left: 15px; }
+.next{ right: 15px; }
+
+/* MOBILE */
+@media (max-width: 600px){
+  #popupImg{
+    max-width: 100vw;
+    height: auto;
+    border-radius: 0;
+  }
+}
+.note-content{
+  display: none;
+}
