@@ -1417,6 +1417,13 @@ nav.scrolled{
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   color: white;
 }
+#c12 > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #2575fc;
+  text-align: center;
+  margin-bottom: 15px;
+}
 
 /* disabled */
 #c12 .disabled-btn{
@@ -1430,4 +1437,24 @@ nav.scrolled{
 .note-content.show{
   display: block;
 }
-
+#c9 > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #2575fc;
+  text-align: center;
+  margin-bottom: 15px;
+}
+#c11 > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #2575fc;
+  text-align: center;
+  margin-bottom: 15px;
+}
+#c8 > p{
+  font-size: 18px;
+  font-weight: 600;
+  color: #2575fc;
+  text-align: center;
+  margin-bottom: 15px;
+}
