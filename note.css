@@ -1458,3 +1458,63 @@ nav.scrolled{
   text-align: center;
   margin-bottom: 15px;
 }
+.card h3 {
+  color: #2c3e50; /* dark blue */
+}.note-content strong {
+  color: #6a5acd; /* purple */
+}
+.note-content ul li {
+  color: #333;
+}
+/* HERO TEXT MAIN */
+.hero-text {
+  max-width: 650px;
+  margin: 20px auto;
+  text-align: center;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: #1f2937;
+}
+
+/* PARAGRAPH */
+.hero-text p {
+  margin: 10px 0;
+}
+
+/* HEADING (What you'll get here) */
+.hero-text strong {
+  display: block;
+  margin-top: 12px;
+  font-size: 17px;
+  color: #7b61ff;
+}
+
+/* LIST */
+.hero-text ul {
+  display: inline-block;
+  text-align: left;
+  margin-top: 12px;
+  padding-left: 20px;
+}
+
+/* LIST ITEMS */
+.hero-text ul li {
+  margin: 6px 0;
+  color: #374151;
+  font-size: 15px;
+}
+
+/* BULLET STYLE */
+.hero-text ul li::marker {
+  color: #6366f1;
+}
+
+/* HOVER EFFECT (optional 🔥) */
+.hero-text ul li:hover {
+  color: #000;
+  transform: translateX(3px);
+  transition: 0.2s;
+}
+.hero-text ul li {
+  list-style: disc;
+}
