@@ -187,7 +187,8 @@ body{
 }
 
 .pdf-btn{
-  background:#22c55e;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);  /* 🔥 new color */
+  color: white;
 }
 
 .info-btn{
@@ -1198,10 +1199,19 @@ nav.scrolled{
 }
 
 /* PDF button */
-#bca .pdf-btn{
-  background: linear-gradient(135deg, #00c853, #00e676);
-  color: white;
+.btn.pdf-btn{
+  background: linear-gradient(135deg, #ff6a00, #ee0979) !important;
+  color: white !important;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 105, 135, 0.6);
+  transition: 0.3s;
 }
+
+.btn.pdf-btn:hover{
+  box-shadow: 0 0 20px rgba(255, 105, 135, 1);
+  transform: scale(1.05);
+}
+
 
 /* Info button */
 #bca .info-btn{
@@ -1358,3 +1368,66 @@ nav.scrolled{
 .note-content{
   display: none;
 }
+#c12 .card{
+  background: linear-gradient(135deg, #f3f0ff, #e0e7ff);
+  border-radius: 16px;
+  padding: 15px;
+  margin-bottom: 15px;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#c12 .card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* headings */
+#c12 .card h3{
+  color: #4c1d95;
+  margin-bottom: 5px;
+}
+
+/* text */
+#c12 .card p{
+  color: #555;
+  font-size: 14px;
+}
+
+/* buttons */
+#c12 .btn{
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+/* PDF button */
+#c12 .pdf-btn{
+  background: linear-gradient(135deg, #00c853, #00e676);
+  color: white;
+}
+
+/* Info button */
+#c12 .info-btn{
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  color: white;
+}
+
+/* disabled */
+#c12 .disabled-btn{
+  opacity: 0.6;
+}
+
+/* hidden content */
+.note-content{
+  display: none;
+}
+.note-content.show{
+  display: block;
+}
+
