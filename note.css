@@ -1460,61 +1460,78 @@ nav.scrolled{
 }
 .card h3 {
   color: #2c3e50; /* dark blue */
-}.note-content strong {
+}.hero-text strong {
   color: #6a5acd; /* purple */
 }
-.note-content ul li {
+.hero-text ul li {
   color: #333;
 }
-/* HERO TEXT MAIN */
-.hero-text {
-  max-width: 650px;
-  margin: 20px auto;
-  text-align: center;
-  font-size: 15.5px;
-  line-height: 1.7;
-  color: #1f2937;
-}
+
 
 /* PARAGRAPH */
 .hero-text p {
   margin: 10px 0;
 }
 
-/* HEADING (What you'll get here) */
-.hero-text strong {
-  display: block;
-  margin-top: 12px;
-  font-size: 17px;
-  color: #7b61ff;
+
+/* ===== HERO ===== */
+.hero {
+  text-align: center;
+  padding: 90px 20px;
+  background: linear-gradient(to bottom, #ffffff, #f8f9ff);
 }
 
-/* LIST */
+/* top line */
+.top-line {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+/* main heading */
+.hero h1 {
+  font-size: 50px;
+  font-weight: 800;
+  color: #2600e7;
+  margin-bottom: 10px;
+}
+
+/* tagline */
+.tagline {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+/* main text box */
+.hero-text {
+  max-width: 700px;
+  margin: auto;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #030404;
+}
+
+/* highlight text */
+.hero-text .highlight {
+  font-weight: bold;
+  color: #7b61ff;
+  margin-top: 15px;
+}
+
+/* list */
 .hero-text ul {
-  display: inline-block;
   text-align: left;
-  margin-top: 12px;
+  display: inline-block;
+  margin-top: 10px;
   padding-left: 20px;
 }
 
-/* LIST ITEMS */
 .hero-text ul li {
-  margin: 6px 0;
-  color: #374151;
-  font-size: 15px;
+  margin: 8px 0;
+  font-size:18px;
 }
+  .hero-text ul li {
+    color:#050505;
+  }
 
-/* BULLET STYLE */
-.hero-text ul li::marker {
-  color: #6366f1;
-}
-
-/* HOVER EFFECT (optional 🔥) */
-.hero-text ul li:hover {
-  color: #000;
-  transform: translateX(3px);
-  transition: 0.2s;
-}
-.hero-text ul li {
-  list-style: disc;
-}
