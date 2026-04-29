@@ -169,7 +169,8 @@ onclick="event.stopPropagation(); openInfo([
   'CO2turn.jpeg',
   'reactivityseriesofmetals.jpeg',
   'common.jpeg',
-  'electrolyticofwater.jpeg'
+  'electrolyticofwater.jpeg',
+  'Corrosion_info.jpeg'
 ])">
   Info📊
 
@@ -326,10 +327,37 @@ onclick="event.stopPropagation(); openInfo([
 
 <div id="c12" class="subjects">
 
-  <!-- SUBJECTS -->
-<p>Maths</p>
-<p>Physics</p>
- <p>Biology</p>
+  <!-- Biology heading -->
+<h3 onclick="toggleNote('bioSection')" class="subject-title bio" style="cursor:pointer;">
+  Biology 🧬
+</h3>
+
+<!-- Hidden Biology section -->
+<div id="bioSection" class="note-content">
+
+  <div class="card" onclick="toggleNote('bio1')">
+    <h3>1. Life Processes</h3>
+    <p>Nutrition, respiration, transportation & excretion basics.</p>
+
+    <div id="bio1" class="note-content">
+      <div class="btn-box">
+
+        <!-- Coming Soon -->
+        <button class="btn pdf-btn disabled">
+          Coming Soon ⏳
+        </button>
+
+        <!-- Info -->
+        <button class="btn info-btn"
+          onclick="event.stopPropagation(); openImage(['Biology-info.jpeg'])">
+          Info
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+</div>
 
   <!-- 🔥 CHEMISTRY (FULL WORKING) -->
   <p onclick="toggleNote('chem12')" style="cursor:pointer;">
@@ -377,7 +405,8 @@ onclick="event.stopPropagation(); openInfo([
   'degree.jpeg',
   'azeotrope.jpeg',
   'colligative.jpeg',
-  'chatelier.3.jpeg'
+  'chatelier.3.jpeg',
+  'solution_info.jpeg'
 ])">
   Info📊
 </button>
@@ -419,7 +448,7 @@ This chapter is very important for board exams and includes both theory and nume
 
       <!-- Info working -->
       <button class="btn info-btn"
-        onclick="event.stopPropagation(); openInfo(['chapter2-cell-sign-convention.jpeg'])">
+        onclick="event.stopPropagation(); openInfo(['chapter2-cell-sign-convention.jpeg','Electrochemical_Cel_linfo.jpeg','Salt_bridge&electrode.jpeg'])">
         Info📊
       </button>
 
