@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://papanotes-study.vercel.app/sitemap.xml
