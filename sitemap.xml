@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://papanotes-study.vercel.app</loc>
+    <loc>https://papanotes-study.vercel.app/</loc>
   </url>
+
+  <url>
+    <loc>https://papanotes-study.vercel.app/class10</loc>
+  </url>
+
+  <url>
+    <loc>https://papanotes-study.vercel.app/class12</loc>
+  </url>
+
+  <url>
+    <loc>https://papanotes-study.vercel.app/bca</loc>
+  </url>
+
+  <url>
+    <loc>https://papanotes-study.vercel.app/contact</loc>
+  </url>
+
+  <url>
+    <loc>https://papanotes-study.vercel.app/about</loc>
+  </url>
+
 </urlset>
