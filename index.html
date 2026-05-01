@@ -393,7 +393,11 @@ onclick="event.stopPropagation(); openInfo([
     <p>Introduction to chemistry, mole concept, laws of chemical combination.</p>
     <div class="btn-box">
       <button class="btn pdf-btn">Coming Soon</button>
-      <button class="btn info-btn">Coming Soon</button>
+      <!-- Info working -->
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openInfo(['propertiesofmater.jpeg','statesofmater.jpeg'])">
+        Info📊
+      </button>
     </div>
   </div>
 
@@ -654,7 +658,7 @@ This chapter is very important for board exams and includes both theory and nume
 
       <!-- Info working -->
       <button class="btn info-btn"
-        onclick="event.stopPropagation(); openInfo(['chapter2-cell-sign-convention.jpeg','Electrochemical_Cel_linfo.jpeg','Salt_bridge&electrode.jpeg'])">
+        onclick="event.stopPropagation(); openInfo(['chapter2-cell-sign-convention.jpeg','Electrochemical_Cel_linfo.jpeg','Salt_bridge&electrode.jpeg','standard.jpeg'])">
         Info📊
       </button>
 
