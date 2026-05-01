@@ -1534,4 +1534,44 @@ nav.scrolled{
   .hero-text ul li {
     color:#050505;
   }
+  /* MOBILE FIX */
+body{
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.container, .subjects{
+  width: 100%;
+  max-width: 100%;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+.btn-box{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px){
+  .cat-box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .cat{
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+
+  .card{
+    padding: 10px;
+  }
+}
 
