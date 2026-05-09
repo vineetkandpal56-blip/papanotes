@@ -105,6 +105,10 @@ body{
   margin-bottom:20px;
   font-size:24px;
 }
+.categories p{
+  color: #000000;
+  font-size: larger;
+}
 
 /* FIX DOUBLE CAT BOX */
 .cat-box{
@@ -214,24 +218,6 @@ body{
 /* ===== POPUP ===== */
 
 
-/* ===== FEATURES ===== */
-.features{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-  padding:50px;
-  background:#f1f5f9;
-}
-
-.box{
-  width:200px;
-  padding:20px;
-  border-radius:10px;
-  background:white;
-  border:1px solid #e5e7eb;
-  text-align:center;
-}
 
 /* ===== CONTACT ===== */
 #contact{
@@ -243,8 +229,8 @@ body{
 footer{
   text-align:center;
   padding:20px;
-  border-top:1px solid #e5e7eb;
-  background:white;
+  border-top:1px solid #ffffff;
+  background:rgb(255, 254, 254);
 }
 
 /* ===== MOBILE ===== */
@@ -421,6 +407,7 @@ footer{
 ========================= */
 #c12{
   text-align:center;
+  
 }
 
 #c12 p{
@@ -432,6 +419,7 @@ footer{
 ========================= */
 #c10{
   text-align:center;
+  
 }
 
 /* =========================
@@ -611,6 +599,7 @@ input, button{
 /* subjects */
 .subjects{
   position: static !important;
+  
 }
 
 /* 🔥 IMPORTANT: card parent fix */
@@ -738,25 +727,26 @@ input, button{
 
 /* NORMAL BUTTON */
 .cat{
-  padding:10px 18px;
-  border-radius:30px;
-  background:#f3f4f6;   /* same light grey */
-  border:1px solid #e5e7eb;
-  color:#111;
+    background:linear-gradient(45deg,#ff00cc,#6a00ff);
+    color:white;
+    padding:12px 22px;
+    margin:10px;
+    border-radius:12px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+    box-shadow:0 0 15px rgba(128,0,255,0.5);
 }
 
-/* HOVER */
 .cat:hover{
-  background:#eff0f2;
+    transform:scale(1.08);
 }
-
 /* ACTIVE (same for all) */
 /* ACTIVE CLASS (Class 11 selected) */
 .cat.active{
-  background:#ffffff;   /* white */
-  color:#000000;        /* black text */
-  border:2px solid #ffffff;  /* optional purple border */
-  box-shadow:0 4px 10px rgb(255, 252, 252);
+    background:linear-gradient(45deg,#ff00cc,#6a00ff);
+    color:white;
+    box-shadow:0 0 15px rgba(128,0,255,0.5);
 }
 
 /* 🔥 NOTE FIX (NO POPUP) */
@@ -1082,6 +1072,7 @@ nav.scrolled{
 
 .subjects{
   display: none;
+  
 }
 
 .subjects.active{
@@ -1196,6 +1187,7 @@ nav.scrolled{
   cursor: pointer;
   font-size: 14px;
   margin-right: 8px;
+  
 }
 
 /* PDF button */
@@ -1240,18 +1232,18 @@ nav.scrolled{
 
 /* cards */
 #c10 .card{
-  background: linear-gradient(135deg, #f5f7fa, #e4e9f7);
+  background: linear-gradient(135deg, #ffffff, #e4e9f7);
   border-radius: 15px;
   padding: 15px;
   margin-bottom: 15px;
 
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 /* hover */
 #c10 .card:hover{
-  transform: translateY(-5px);
+  transform: translateY(-3px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
@@ -1375,7 +1367,7 @@ nav.scrolled{
   margin-bottom: 15px;
 
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-  transition: 0.3s;
+  transition: 0.2s;
   cursor: pointer;
 }
 
@@ -1596,16 +1588,16 @@ border-radius:10px;
 
 background:linear-gradient(
 135deg,
-#fffcfc,
-#ffffff
+#fb01ff,
+#501066
 );
 
-color:rgb(1, 1, 1);
+color:rgb(255, 255, 255);
 
 text-decoration:none;
 
 box-shadow:
-0 0 10px rgba(123,97,255,0.3);
+0 0 10px rgba(43, 1, 254, 0.3);
 
 transition:0.3s;
 
@@ -1624,5 +1616,94 @@ transform:scale(1.03);
 .iq-btn span{
 
 font-size:13px;
+
+}
+.iq-section p{
+
+font-size:18px;
+
+font-weight:600;
+
+background:linear-gradient(
+90deg,
+#000000,
+#002aff
+);
+
+-webkit-background-clip:text;
+
+background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+}
+.java-section{
+
+text-align:center;
+
+margin-top:35px;
+margin-bottom:25px;
+
+}
+
+.java-section p{
+
+font-size:18px;
+
+font-weight:600;
+
+background:linear-gradient(
+90deg,
+#000000,
+#6a00ff
+);
+
+-webkit-background-clip:text;
+
+background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+margin-bottom:15px;
+
+}
+
+.java-btn{
+
+display:inline-flex;
+
+align-items:center;
+justify-content:center;
+
+gap:6px;
+
+padding:10px 18px;
+
+font-size:15px;
+
+font-weight:600;
+
+border-radius:10px;
+
+background:linear-gradient(
+135deg,
+#fb01ff,
+#501066
+);
+
+color:white;
+
+text-decoration:none;
+
+box-shadow:
+0 0 10px rgba(43, 1, 254, 0.3);
+
+transition:0.3s;
+
+}
+
+.java-btn:hover{
+
+transform:scale(1.05);
 
 }

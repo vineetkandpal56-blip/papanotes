@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Java MCQ Test</title>
+
+<style>
+
+body{
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    min-height:100vh;
+    margin:0;
+
+    color:white;
+}
+
+.quiz-container{
+    width: 90%;
+    max-width:800px;
+    margin:auto;
+    background:white;
+    color:black;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 0 25px rgba(255,255,255,0.2);
+}
+/* hover effect */
+.option:hover{
+    transform:scale(1.02);
+}
+
+/* smooth animation */
+.quiz-container{
+    animation:fade 0.5s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+h1{
+    text-align:center;
+    color:#6a00ff;
+}
+
+.question{
+    font-size:22px;
+    margin-bottom:20px;
+    font-weight:bold;
+}
+
+.option{
+    background:#f3f3f3;
+    padding:15px;
+    margin:10px 0;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.3s;
+    border:2px solid transparent;
+}
+
+.option:hover{
+    background:#e0d4ff;
+}
+
+.option.correct{
+    background:#4caf50;
+    color:white;
+}
+
+.option.wrong{
+    background:#f44336;
+    color:white;
+}
+
+#nextBtn{
+    background:linear-gradient(45deg,#ff00cc,#6a00ff);
+    color:white;
+    border:none;
+    padding:14px 28px;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+#nextBtn:hover{
+    transform:scale(1.05);
+}
+
+#score{
+    text-align:center;
+    font-size:28px;
+    margin-top:20px;
+    font-weight:bold;
+    color:#6a00ff;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="quiz-container">
+
+<h1>💻 Java MCQ Test</h1>
+
+<div id="quiz">
+
+<div class="question" id="question">
+Question Here
+</div>
+
+<div id="answers"></div>
+
+<button id="nextBtn">Next Question</button>
+
+<div id="score"></div>
+
+</div>
+
+</div>
+
+<script>
+
+const quizData = [
+
+{
+question:"What does OOP stand for?",
+a:"Object Oriented Programming",
+b:"Only Object Program",
+c:"Object Operating Program",
+d:"Operating Object Process",
+correct:"a"
+},
+
+{
+question:"Which language is platform independent?",
+a:"C",
+b:"C++",
+c:"Java",
+d:"Python",
+correct:"c"
+},
+
+{
+question:"Which keyword is used to create object in Java?",
+a:"make",
+b:"new",
+c:"create",
+d:"object",
+correct:"b"
+},
+
+{
+question:"Which method is entry point of Java program?",
+a:"start()",
+b:"run()",
+c:"main()",
+d:"init()",
+correct:"c"
+},
+
+{
+question:"Java is developed by?",
+a:"Microsoft",
+b:"Google",
+c:"Sun Microsystems",
+d:"Apple",
+correct:"c"
+},
+
+{
+question:"Which concept binds data and methods together?",
+a:"Abstraction",
+b:"Encapsulation",
+c:"Inheritance",
+d:"Polymorphism",
+correct:"b"
+},
+
+{
+question:"Which keyword is used for inheritance?",
+a:"implement",
+b:"inherits",
+c:"extends",
+d:"super",
+correct:"c"
+},
+
+{
+question:"Which package contains Scanner class?",
+a:"java.io",
+b:"java.util",
+c:"java.net",
+d:"java.lang",
+correct:"b"
+},
+
+{
+question:"Which block always executes?",
+a:"try",
+b:"catch",
+c:"throw",
+d:"finally",
+correct:"d"
+},
+
+{
+question:"Array index starts from?",
+a:"1",
+b:"0",
+c:"-1",
+d:"2",
+correct:"b"
+}
+
+];
+
+const question = document.getElementById("question");
+const answers = document.getElementById("answers");
+const nextBtn = document.getElementById("nextBtn");
+const scoreText = document.getElementById("score");
+
+let currentQuiz = 0;
+let score = 0;
+
+loadQuiz();
+
+function loadQuiz(){
+
+answers.innerHTML="";
+
+let currentData = quizData[currentQuiz];
+
+question.innerText = currentData.question;
+
+for(let key in currentData){
+
+if(key !== "question" && key !== "correct"){
+
+const div = document.createElement("div");
+
+div.classList.add("option");
+
+div.innerText = currentData[key];
+
+div.dataset.correct = key;
+
+div.onclick = () => selectAnswer(div,key,currentData.correct);
+
+answers.appendChild(div);
+
+}
+
+}
+
+}
+
+function selectAnswer(selected,key,correct){
+
+const allOptions = document.querySelectorAll(".option");
+
+allOptions.forEach(option=>{
+
+option.style.pointerEvents="none";
+
+});
+
+if(key === correct){
+
+selected.classList.add("correct");
+score++;
+
+}else{
+
+selected.classList.add("wrong");
+
+allOptions.forEach(option=>{
+
+if(option.dataset.correct === correct){
+
+option.classList.add("correct");
+
+}
+
+});
+
+}
+
+}
+
+nextBtn.addEventListener("click",()=>{
+
+currentQuiz++;
+
+if(currentQuiz < quizData.length){
+
+loadQuiz();
+
+}else{
+
+document.getElementById("quiz").innerHTML = `
+<h1>🎉 Quiz Finished</h1>
+<div id="score">
+Your Score: ${score} / ${quizData.length}
+</div>
+`;
+
+}
+
+});
+
+</script>
+
+</body>
+</html>
