@@ -473,3 +473,76 @@ function openInfo(images){
   const data = encodeURIComponent(JSON.stringify(images));
   window.open("info.html?imgs=" + data, "_blank");
 }
+
+/* SHOW / HIDE */
+
+function toggleCalculator(){
+
+let calc =
+document.getElementById("calculator-box");
+
+if(calc.style.display === "block"){
+
+calc.style.display = "none";
+
+}
+
+else{
+
+calc.style.display = "block";
+
+}
+
+}
+
+/* ADD VALUE */
+
+function appendValue(value){
+
+document.getElementById("display")
+.value += value;
+
+}
+
+/* CLEAR */
+
+function clearDisplay(){
+
+document.getElementById("display")
+.value = "";
+
+}
+
+/* DELETE */
+
+function deleteLast(){
+
+let display =
+document.getElementById("display");
+
+display.value =
+display.value.slice(0,-1);
+
+}
+
+/* CALCULATE */
+
+function calculate(){
+
+let display =
+document.getElementById("display");
+
+try{
+
+display.value =
+eval(display.value);
+
+}
+
+catch{
+
+display.value = "Error";
+
+}
+
+}

@@ -315,7 +315,10 @@ onclick="event.stopPropagation(); openInfo([
   <div id="ch5" class="note-content">
     <div class="btn-box">
       <button class="btn pdf-btn disabled-btn" disabled>PDF (Coming Soon)</button>
-      <button class="btn info-btn disabled-btn" disabled>Info (Coming Soon)</button>
+      <button class="btn info-btn"
+        onclick="event.stopPropagation(); openInfo(['lifeprocesses.jpeg'])">
+        Info📊
+      </button>
     </div>
   </div>
 </div>
@@ -934,6 +937,61 @@ Practice previous year questions to improve exam preparation.
 
   </div>
 </section>
+<!-- OPEN BUTTON -->
+
+<div class="calc-option"
+onclick="toggleCalculator()">
+
+🧮 Open Calculator
+
+</div>
+
+<!-- CALCULATOR -->
+
+<div id="calculator-box">
+
+  <div class="calc">
+
+    <input type="text"
+    id="display"
+    readonly>
+
+    <div class="buttons">
+
+      <button onclick="clearDisplay()">C</button>
+
+      <button onclick="appendValue('%')">%</button>
+
+      <button onclick="appendValue('/')">/</button>
+
+      <button onclick="deleteLast()">⌫</button>
+
+      <button onclick="appendValue('7')">7</button>
+      <button onclick="appendValue('8')">8</button>
+      <button onclick="appendValue('9')">9</button>
+      <button onclick="appendValue('*')">*</button>
+
+      <button onclick="appendValue('4')">4</button>
+      <button onclick="appendValue('5')">5</button>
+      <button onclick="appendValue('6')">6</button>
+      <button onclick="appendValue('-')">-</button>
+
+      <button onclick="appendValue('1')">1</button>
+      <button onclick="appendValue('2')">2</button>
+      <button onclick="appendValue('3')">3</button>
+      <button onclick="appendValue('+')">+</button>
+
+      <button onclick="appendValue('0')">0</button>
+
+      <button onclick="appendValue('.')">.</button>
+
+      <button onclick="calculate()">=</button>
+
+    </div>
+
+  </div>
+
+</div>
 
 <!-- IMAGE POPUP -->
 
@@ -1013,8 +1071,10 @@ Practice previous year questions to improve exam preparation.
     </div>
 
   </div>
+  
 
 </section>
+
 <!-- FOOTER -->
 <footer>
   <p>© 2026 PapaNotes</p>
@@ -1043,6 +1103,10 @@ Practice previous year questions to improve exam preparation.
 
 <script src="notess.js"></script>
 
+
+
+
+
 <!-- page ka sab content ... -->
 
 <!-- 🔥 POPUP (body ke end me, last element) -->
@@ -1053,7 +1117,6 @@ Practice previous year questions to improve exam preparation.
   <button class="next" onclick="event.stopPropagation(); nextImage()">❯</button>
 </div>
 
-</body>
 </body>
 
 </html>
