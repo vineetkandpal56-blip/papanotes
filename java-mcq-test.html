@@ -161,12 +161,64 @@ h1{
     font-weight:bold;
     color:#6a00ff;
 }
+/* TIMER BOX */
 
+#timer-box{
+
+position:fixed;
+
+top:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+padding:10px 20px;
+
+border-radius:14px;
+
+background:rgba(17,24,39,0.92);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,0.1);
+
+box-shadow:
+0 0 15px rgba(123,97,255,0.35);
+
+font-size:20px;
+
+font-weight:bold;
+
+color:white;
+
+z-index:9999;
+
+}
+
+/* TIMER NUMBER */
+
+#time{
+
+color:#00e5ff;
+
+font-size:22px;
+
+}
 </style>
 </head>
 
 <body>
+<div id="timer-box">
 
+⏳ Time Left:
+<span id="time">
+
+01:00
+
+</span>
+
+</div>
 <div class="quiz-container">
 
 <h1>💻 Java MCQ Test</h1>
@@ -188,6 +240,8 @@ Question Here
 </div>
 
 <script>
+    let timeLeft = 60;
+    let countdown;
 
 const quizData = [
 
@@ -292,6 +346,7 @@ let currentQuiz = 0;
 let score = 0;
 
 loadQuiz();
+startTimer();
 
 function loadQuiz(){
 
@@ -364,6 +419,7 @@ if(currentQuiz < quizData.length){
 
 loadQuiz();
 
+
 }else{
 
 document.getElementById("quiz").innerHTML = `
@@ -376,6 +432,71 @@ Your Score: ${score} / ${quizData.length}
 }
 
 });
+function startTimer(){
+
+const timer =
+document.getElementById("time");
+
+countdown =
+setInterval(() => {
+
+let minutes =
+Math.floor(timeLeft / 60);
+
+let seconds =
+timeLeft % 60;
+
+seconds =
+seconds < 10
+? "0" + seconds
+: seconds;
+
+timer.innerHTML =
+minutes + ":" + seconds;
+
+/* RED WARNING */
+
+if(timeLeft <= 10){
+
+timer.style.color = "red";
+
+}
+
+/* AUTO SUBMIT */
+
+if(timeLeft <= 0){
+
+clearInterval(countdown);
+
+/* RESULT PAGE */
+
+document.getElementById("quiz")
+.innerHTML = `
+
+<h1>
+
+⏳ Time Up!
+
+</h1>
+
+<div id="score">
+
+Your Score:
+${score} / ${quizData.length}
+
+</div>
+
+`;
+
+return;
+
+}
+
+timeLeft--;
+
+},1000);
+
+}
 
 </script>
 

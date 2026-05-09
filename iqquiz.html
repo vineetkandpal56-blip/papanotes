@@ -316,13 +316,66 @@ font-weight:bold;
 cursor:pointer;
 
 }
+/* TIMER BOX */
+
+#timer-box{
+
+position:fixed;
+
+top:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+padding:12px 22px;
+
+border-radius:16px;
+
+background:rgba(17,24,39,0.9);
+
+backdrop-filter:blur(10px);
+
+border:1px solid rgba(255,255,255,0.1);
+
+box-shadow:
+0 0 18px rgba(123,97,255,0.35);
+
+font-size:22px;
+
+font-weight:bold;
+
+color:white;
+
+z-index:9999;
+
+}
+
+/* TIMER NUMBER */
+
+#time{
+
+color:#00e5ff;
+
+font-size:24px;
+
+}
 
 </style>
 
 </head>
 
 <body>
+<div id="timer-box">
 
+⏳ Time Left:
+<span id="time">
+
+20:00
+
+</span>
+
+</div>
 <div class="quiz-box">
 
 <h1>🧠 Ultimate IQ Challenge</h1>
@@ -1853,6 +1906,60 @@ function restartQuiz(){
 location.reload();
 
 }
+/* 20 MIN TIMER */
+
+let timeLeft = 1200;
+
+const timer =
+document.getElementById("time");
+
+const countdown =
+setInterval(() => {
+
+let minutes =
+Math.floor(timeLeft / 60);
+
+let seconds =
+timeLeft % 60;
+
+/* FORMAT */
+
+seconds =
+seconds < 10
+? "0" + seconds
+: seconds;
+
+/* SHOW TIME */
+
+timer.innerHTML =
+
+minutes + ":" + seconds;
+
+/* LAST 1 MIN RED */
+
+if(timeLeft <= 60){
+
+timer.style.color = "red";
+
+}
+
+/* AUTO SUBMIT */
+
+if(timeLeft <= 0){
+
+clearInterval(countdown);
+
+alert(
+"⏳ Time Up! Quiz Submitted."
+);
+
+showResult();
+
+}
+
+timeLeft--;
+
+},1000);
 
 /* START */
 
