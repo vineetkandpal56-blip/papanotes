@@ -1694,3 +1694,35 @@ color:white;
 background:#7b61ff;
 
 }
+.iq-btn{
+
+display:inline-block;
+
+padding:15px 25px;
+
+background:linear-gradient(
+135deg,
+#7b61ff,
+#5b21b6);
+
+color:white;
+
+text-decoration:none;
+
+font-size:22px;
+
+font-weight:bold;
+
+border-radius:16px;
+
+box-shadow:0 8px 25px rgba(123,97,255,0.4);
+
+transition:0.3s;
+
+}
+
+.iq-btn:hover{
+
+transform:scale(1.05);
+
+}
