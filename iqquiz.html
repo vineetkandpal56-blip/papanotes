@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>PapaNotes Ultimate IQ Quiz</title>
+<img src="logopapanotes.png"
+class="logo">
+
+<style>
+    .logo{
+
+position:absolute;
+
+top:20px;
+left:20px;
+
+width:90px;
+
+height:auto;
+
+z-index:100;
+
+filter:
+drop-shadow(
+0 0 15px
+rgba(123,97,255,0.8)
+);
+
+animation:logoFloat 3s ease-in-out infinite;
+
+}
+
+/* FLOAT */
+
+@keyframes logoFloat{
+
+0%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+100%{
+
+transform:translateY(0);
+
+}
+
+}
+
+body{
+
+margin:0;
+padding:0;
+
+font-family:Arial,sans-serif;
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+overflow:hidden;
+
+background:#050816;
+
+color:white;
+
+position:relative;
+
+}
+
+/* ANIMATED GLOW CIRCLES */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:500px;
+height:500px;
+
+background:#7b61ff;
+
+border-radius:50%;
+
+top:-150px;
+left:-150px;
+
+filter:blur(140px);
+
+opacity:0.6;
+
+animation:move1 8s infinite alternate;
+
+}
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+width:450px;
+height:450px;
+
+background:#00e5ff;
+
+border-radius:50%;
+
+bottom:-150px;
+right:-150px;
+
+filter:blur(140px);
+
+opacity:0.5;
+
+animation:move2 10s infinite alternate;
+
+}
+
+/* ANIMATIONS */
+
+@keyframes move1{
+
+from{
+
+transform:translate(0,0);
+
+}
+
+to{
+
+transform:translate(100px,80px);
+
+}
+
+}
+
+@keyframes move2{
+
+from{
+
+transform:translate(0,0);
+
+}
+
+to{
+
+transform:translate(-120px,-90px);
+
+}
+
+}
+
+/* QUIZ BOX */
+
+.quiz-box{
+
+position:relative;
+
+z-index:10;
+
+width:90%;
+max-width:720px;
+
+padding:40px;
+
+border-radius:30px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(18px);
+
+border:1px solid rgba(255,255,255,0.1);
+
+box-shadow:
+0 0 40px rgba(123,97,255,0.25);
+
+text-align:center;
+
+}
+
+/* TITLE */
+
+.quiz-box h1{
+
+font-size:48px;
+
+margin-bottom:20px;
+
+background:linear-gradient(
+90deg,
+#7b61ff,
+#00e5ff);
+
+-webkit-background-clip:text;
+background-clip: text;
+
+-webkit-text-fill-color:transparent;
+
+}
+
+/* QUESTION */
+
+#question{
+
+font-size:30px;
+
+line-height:1.5;
+
+margin-bottom:30px;
+
+color:white;
+
+}
+
+/* OPTIONS */
+
+.options{
+
+display:flex;
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.options button{
+
+padding:18px;
+
+border:none;
+
+border-radius:18px;
+
+background:rgba(255,255,255,0.08);
+
+backdrop-filter:blur(8px);
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+transition:0.3s;
+
+border:1px solid rgba(255,255,255,0.1);
+
+}
+
+.options button:hover{
+
+transform:scale(1.04);
+
+background:linear-gradient(
+135deg,
+#7b61ff,
+#00e5ff);
+
+box-shadow:
+0 0 20px rgba(123,97,255,0.6);
+
+}
+
+/* NEXT BUTTON */
+
+.control-buttons button{
+
+padding:15px 26px;
+
+border:none;
+
+border-radius:18px;
+
+background:linear-gradient(
+135deg,
+#7b61ff,
+#00e5ff);
+
+color:white;
+
+font-size:18px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+margin-top:25px;
+
+transition:0.3s;
+
+}
+
+.control-buttons button:hover{
+
+transform:scale(1.05);
+
+}
+
+/* RESULT */
+
+.result-box h1{
+
+font-size:55px;
+
+margin-bottom:25px;
+
+color:#00ffcc;
+
+}
+
+.result-box h2{
+
+font-size:34px;
+
+margin-bottom:20px;
+
+}
+
+.result-box p{
+
+font-size:26px;
+
+line-height:1.7;
+
+}
+.selected{
+
+background:linear-gradient(
+135deg,
+#7b61ff,
+#00e5ff
+) !important;
+
+color:white;
+
+transform:scale(1.03);
+
+box-shadow:
+0 0 20px rgba(123,97,255,0.6);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="quiz-box">
+
+<h1>🧠 Ultimate IQ Challenge</h1>
+
+<div id="progress">
+
+Question 1 / 20
+
+</div>
+
+<h2 id="question">
+
+Question Here
+
+</h2>
+
+<div class="options">
+
+<button onclick="selectAnswer(0)"
+id="opt0"></button>
+
+<button onclick="selectAnswer(1)"
+id="opt1"></button>
+
+<button onclick="selectAnswer(2)"
+id="opt2"></button>
+
+<button onclick="selectAnswer(3)"
+id="opt3"></button>
+
+</div>
+
+<div class="control-buttons">
+
+<button onclick="prevQuestion()">
+
+⬅ Previous
+
+</button>
+
+<button onclick="nextQuestion()">
+
+Next ➡
+
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const quiz = [
+
+{
+question:"What is 15 × 12 ?",
+options:["160","170","180","190"],
+answer:2
+},
+
+{
+question:"Which planet has the most moons?",
+options:["Earth","Mars","Jupiter","Venus"],
+answer:2
+},
+
+{
+question:"Find the next number: 1, 4, 9, 16, ?",
+options:["20","25","30","36"],
+answer:1
+},
+
+{
+question:"Who invented electricity?",
+options:["Newton","Einstein","Tesla","Faraday"],
+answer:3
+},
+
+{
+question:"What is the cube root of 343?",
+options:["5","6","7","8"],
+answer:2
+},
+
+{
+question:"Which gas do plants absorb?",
+options:["Oxygen","Nitrogen","Carbon Dioxide","Hydrogen"],
+answer:2
+},
+
+{
+question:"Solve: 18 + 6 ÷ 2",
+options:["12","15","18","21"],
+answer:3
+},
+
+{
+question:"Fastest land animal?",
+options:["Tiger","Lion","Cheetah","Leopard"],
+answer:2
+},
+
+{
+question:"Capital of Canada?",
+options:["Toronto","Ottawa","Vancouver","Montreal"],
+answer:1
+},
+
+{
+question:"What is 25% of 320?",
+options:["60","70","80","90"],
+answer:2
+},
+
+{
+question:"Find missing: 2, 6, 12, 20, ?",
+options:["28","30","32","34"],
+answer:1
+},
+
+{
+question:"Which organ pumps blood?",
+options:["Liver","Kidney","Heart","Lungs"],
+answer:2
+},
+
+{
+question:"Which is smallest prime number?",
+options:["0","1","2","3"],
+answer:2
+},
+
+{
+question:"Who wrote Romeo and Juliet?",
+options:["Shakespeare","Newton","Tolstoy","Dickens"],
+answer:0
+},
+
+{
+question:"What is H2O?",
+options:["Hydrogen","Oxygen","Water","Salt"],
+answer:2
+},
+
+{
+question:"Binary of decimal 2?",
+options:["10","11","01","100"],
+answer:0
+},
+
+{
+question:"Largest ocean on Earth?",
+options:["Atlantic","Pacific","Indian","Arctic"],
+answer:1
+},
+
+{
+question:"What is 9² ?",
+options:["72","81","99","90"],
+answer:1
+},
+
+{
+question:"Which metal is liquid?",
+options:["Iron","Copper","Mercury","Gold"],
+answer:2
+},
+
+{
+question:"Speed of light is approximately?",
+options:["3×10⁸ m/s","3×10⁶ m/s","3×10⁴ m/s","3×10² m/s"],
+answer:0
+}
+
+];
+
+/* VARIABLES */
+
+let currentQuestion = 0;
+
+let score = 0;
+
+let selectedAnswer = null;
+
+/* LOAD QUESTION */
+
+function loadQuestion(){
+
+document.getElementById("progress")
+.innerHTML =
+
+"Question "
++ (currentQuestion + 1)
++ " / "
++ quiz.length;
+
+document.getElementById("question")
+.innerHTML =
+quiz[currentQuestion].question;
+
+/* OPTIONS */
+
+for(let i=0;i<4;i++){
+
+let btn =
+document.getElementById("opt"+i);
+
+btn.innerHTML =
+quiz[currentQuestion].options[i];
+
+btn.classList.remove("selected");
+
+}
+
+/* SHOW OLD SELECTED */
+
+if(userAnswers[currentQuestion]
+!== undefined){
+
+document.getElementById(
+"opt" +
+userAnswers[currentQuestion]
+
+).classList.add("selected");
+
+}
+
+}
+
+/* SAVE ANSWERS */
+
+let userAnswers = [];
+
+/* SELECT OPTION */
+
+function selectAnswer(index){
+
+selectedAnswer = index;
+
+/* SAVE */
+
+userAnswers[currentQuestion]
+= index;
+
+/* REMOVE OLD */
+
+for(let i=0;i<4;i++){
+
+document.getElementById("opt"+i)
+.classList.remove("selected");
+
+}
+
+/* ADD NEW */
+
+document.getElementById("opt"+index)
+.classList.add("selected");
+
+}
+
+/* NEXT QUESTION */
+
+function nextQuestion(){
+
+if(selectedAnswer === null){
+
+alert("⚠ Please select an answer!");
+
+return;
+
+}
+
+/* NEXT */
+
+currentQuestion++;
+
+selectedAnswer = null;
+
+if(currentQuestion >= quiz.length){
+
+showResult();
+
+}
+
+else{
+
+loadQuestion();
+
+}
+
+}
+
+/* PREVIOUS */
+
+function prevQuestion(){
+
+if(currentQuestion > 0){
+
+currentQuestion--;
+
+selectedAnswer =
+userAnswers[currentQuestion];
+
+loadQuestion();
+
+}
+
+}
+
+/* SHOW RESULT */
+
+function showResult(){
+
+score = 0;
+
+/* COUNT SCORE */
+
+for(let i=0;i<quiz.length;i++){
+
+if(userAnswers[i] ===
+quiz[i].answer){
+
+score++;
+
+}
+
+}
+
+let iqText = "";
+
+/* IQ LEVEL */
+
+if(score >= 18){
+
+iqText =
+"🧠 Your IQ Level is Genius";
+
+}
+
+else if(score >= 14){
+
+iqText =
+"🔥 Your IQ Level is High";
+
+}
+
+else if(score >= 10){
+
+iqText =
+"😎 Your IQ Level is Average";
+
+}
+
+else{
+
+iqText =
+"💀 Your IQ Level Needs Improvement";
+
+}
+
+/* RESULT PAGE */
+
+document.querySelector(".quiz-box")
+.innerHTML =
+
+`
+
+<div class="result-box">
+
+<h1>
+
+🎉 Quiz Completed
+
+</h1>
+
+<h2>
+
+🔥 Your Score:
+${score}/${quiz.length}
+
+</h2>
+
+<p>
+
+${iqText}
+
+</p>
+
+<button onclick="restartQuiz()">
+
+Play Again 🚀
+
+</button>
+
+</div>
+
+`;
+
+}
+
+/* RESTART */
+
+function restartQuiz(){
+
+location.reload();
+
+}
+
+/* START */
+
+loadQuestion();
+</script>
+
+</body>
+
+</html>
