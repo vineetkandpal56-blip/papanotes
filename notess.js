@@ -217,30 +217,7 @@ window.closeImage = function(){
 });
 
 
-document.addEventListener("mousemove", e=>{
-  glow.style.left = e.clientX + "px";
-  glow.style.top = e.clientY + "px";
-});
 
-document.querySelectorAll(".card").forEach(card=>{
-  card.addEventListener("mousemove", e=>{
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = -(y - centerY) / 15;
-    const rotateY = (x - centerX) / 15;
-
-    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-  });
-
-  // card.addEventListener("mouseleave", ()=>{
-  //   card.style.transform = "rotateX(0) rotateY(0)";
-  // });
-});
 const darkBtn = document.createElement("button");
 darkBtn.innerText = "🌙";
 darkBtn.style.position = "fixed";
@@ -474,75 +451,3 @@ function openInfo(images){
   window.open("info.html?imgs=" + data, "_blank");
 }
 
-/* SHOW / HIDE */
-
-function toggleCalculator(){
-
-let calc =
-document.getElementById("calculator-box");
-
-if(calc.style.display === "block"){
-
-calc.style.display = "none";
-
-}
-
-else{
-
-calc.style.display = "block";
-
-}
-
-}
-
-/* ADD VALUE */
-
-function appendValue(value){
-
-document.getElementById("display")
-.value += value;
-
-}
-
-/* CLEAR */
-
-function clearDisplay(){
-
-document.getElementById("display")
-.value = "";
-
-}
-
-/* DELETE */
-
-function deleteLast(){
-
-let display =
-document.getElementById("display");
-
-display.value =
-display.value.slice(0,-1);
-
-}
-
-/* CALCULATE */
-
-function calculate(){
-
-let display =
-document.getElementById("display");
-
-try{
-
-display.value =
-eval(display.value);
-
-}
-
-catch{
-
-display.value = "Error";
-
-}
-
-}
