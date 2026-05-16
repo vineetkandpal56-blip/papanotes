@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Class 12 Chemistry PYQ</title>
+
+<style>
+
+/* GOOGLE FONT */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* BODY */
+
+body{
+
+margin:0;
+padding:0;
+
+font-family:'Poppins',sans-serif;
+
+background:
+linear-gradient(
+135deg,
+#eef2ff,
+#dbeafe,
+#f5f3ff
+);
+
+background-size:400% 400%;
+
+animation:bgMove 12s ease infinite;
+
+overflow-x:hidden;
+
+color:#111827;
+
+}
+
+/* BG ANIMATION */
+
+@keyframes bgMove{
+
+0%{
+background-position:0% 50%;
+}
+
+50%{
+background-position:100% 50%;
+}
+
+100%{
+background-position:0% 50%;
+}
+
+}
+
+/* FLOATING BG */
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+width:320px;
+height:320px;
+
+background:
+rgba(139,92,246,0.12);
+
+border-radius:50%;
+
+top:-120px;
+left:-120px;
+
+filter:blur(60px);
+
+z-index:-1;
+
+animation:floatBg 8s ease-in-out infinite;
+
+}
+
+body::after{
+
+content:"";
+
+position:fixed;
+
+width:260px;
+height:260px;
+
+background:
+rgba(96,165,250,0.12);
+
+border-radius:50%;
+
+bottom:-100px;
+right:-100px;
+
+filter:blur(60px);
+
+z-index:-1;
+
+animation:floatBg2 10s ease-in-out infinite;
+
+}
+
+@keyframes floatBg{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(25px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+@keyframes floatBg2{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-20px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* HEADER */
+
+.header{
+
+position:relative;
+
+background:
+rgba(255,255,255,0.72);
+
+backdrop-filter:blur(18px);
+
+padding:70px 20px 50px;
+
+text-align:center;
+
+box-shadow:
+0 8px 30px rgba(0,0,0,0.06);
+
+border-bottom:
+1px solid rgba(255,255,255,0.35);
+
+overflow:hidden;
+
+}
+
+/* LOGO */
+
+.logo{
+
+position:absolute;
+
+top:20px;
+left:20px;
+
+width:85px;
+
+filter:
+drop-shadow(
+0 0 15px
+rgba(123,97,255,0.45)
+);
+
+animation:floatLogo 3s ease-in-out infinite;
+
+}
+
+@keyframes floatLogo{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-4px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+/* TITLE */
+
+.header h1{
+
+font-size:58px;
+
+margin-bottom:12px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+background:
+linear-gradient(
+90deg,
+#6a5cff,
+#8b5cf6
+);
+
+-webkit-background-clip:text;
+background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
+text-shadow:
+0 0 18px rgba(106,92,255,0.15);
+
+}
+
+/* SUBTITLE */
+
+.header p{
+
+font-size:18px;
+
+color:#64748b;
+
+max-width:700px;
+
+margin:auto;
+
+line-height:1.7;
+
+}
+
+/* CONTAINER */
+
+.pyq-container{
+
+width:90%;
+
+max-width:1150px;
+
+margin:50px auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(280px,1fr));
+
+gap:30px;
+
+}
+
+/* CARD */
+
+.pyq-card{
+
+position:relative;
+
+overflow:hidden;
+
+background:
+rgba(255,255,255,0.72);
+
+backdrop-filter:blur(18px);
+
+padding:34px;
+
+border-radius:28px;
+
+border:
+1px solid rgba(255,255,255,0.45);
+
+box-shadow:
+0 15px 40px rgba(0,0,0,0.08);
+
+transition:0.35s;
+
+}
+
+/* GLOW */
+
+.pyq-card::before{
+
+content:"";
+
+position:absolute;
+
+width:240px;
+height:240px;
+
+background:
+rgba(106,92,255,0.08);
+
+border-radius:50%;
+
+top:-100px;
+right:-100px;
+
+filter:blur(40px);
+
+}
+
+/* SHINE */
+
+.pyq-card::after{
+
+content:"";
+
+position:absolute;
+
+top:-50%;
+
+left:-70%;
+
+width:220px;
+
+height:220px;
+
+background:
+rgba(255,255,255,0.18);
+
+transform:rotate(25deg);
+
+transition:0.7s;
+
+}
+
+.pyq-card:hover{
+
+transform:
+translateY(-2px);
+
+}
+
+.pyq-card:hover::after{
+
+left:130%;
+
+}
+
+/* BADGE */
+
+.top-badge{
+
+display:inline-block;
+
+padding:8px 16px;
+
+border-radius:999px;
+
+background:
+linear-gradient(
+45deg,
+#6a5cff,
+#8b5cf6
+);
+
+color:white;
+
+font-size:13px;
+
+font-weight:bold;
+
+margin-bottom:18px;
+
+}
+
+/* UK */
+
+.top-badge.uk{
+
+background:
+linear-gradient(
+45deg,
+#0ea5e9,
+#2563eb
+);
+
+}
+
+/* TITLE */
+
+.pyq-card h2{
+
+font-size:30px;
+
+margin-bottom:15px;
+
+color:#4f46e5;
+
+}
+
+/* TEXT */
+
+.pyq-card p{
+
+font-size:16px;
+
+line-height:1.7;
+
+color:#475569;
+
+margin-bottom:25px;
+
+}
+
+/* BUTTON */
+
+.premium-btn{
+
+display:inline-block;
+
+padding:14px 28px;
+
+border-radius:16px;
+
+background:
+linear-gradient(
+45deg,
+#6a5cff,
+#8b5cf6
+);
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:0.3s;
+
+box-shadow:
+0 10px 24px rgba(106,92,255,0.25);
+
+}
+
+.premium-btn:hover{
+
+transform:scale(1.05);
+
+}
+
+/* YEAR BUTTON BOX */
+
+.year-box{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:12px;
+
+margin-top:18px;
+
+}
+
+/* YEAR BUTTON */
+
+.year-btn{
+
+padding:12px 18px;
+
+border-radius:14px;
+
+background:
+linear-gradient(
+45deg,
+#0ea5e9,
+#2563eb
+);
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+font-size:14px;
+
+transition:0.3s;
+
+box-shadow:
+0 8px 18px rgba(37,99,235,0.22);
+
+}
+
+/* HOVER */
+
+.year-btn:hover{
+
+transform:
+translateY(-3px)
+scale(1.04);
+
+}
+
+/* FOOTER */
+
+.footer{
+
+text-align:center;
+
+padding:30px;
+
+font-size:15px;
+
+color:#64748b;
+
+font-weight:500;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.header h1{
+
+font-size:40px;
+
+}
+
+.logo{
+
+width:65px;
+
+}
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<div class="header">
+
+<img src="logopapanotes.png"
+class="logo">
+
+<h1>
+
+🧪 Class 12 Chemistry PYQ
+
+</h1>
+
+<p>
+
+CBSE & Uttarakhand Board Previous Year Questions,
+Sample Papers & Important Questions 🚀
+
+</p>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div class="pyq-container">
+
+<!-- CBSE PYQ -->
+
+<div class="pyq-card">
+
+<div class="top-badge">
+
+CBSE
+
+</div>
+
+<h2>
+
+📘 CBSE PYQ
+
+</h2>
+
+<p>
+
+CBSE Previous Year Questions
+for Class 12 Chemistry.
+
+</p>
+
+<button class="coming-btn">
+
+🚧 Coming Soon
+
+</button>
+
+</div>
+<!-- UK BOARD PYQ -->
+
+<div class="pyq-card">
+
+<div class="top-badge uk">
+
+UK BOARD
+
+</div>
+
+<h2>
+
+🏔 UK Board PYQ
+
+</h2>
+
+<p>
+
+Select year-wise Uttarakhand Board
+Chemistry Previous Year Questions.
+
+</p>
+
+<!-- YEAR BUTTONS -->
+
+<div class="year-box">
+
+<a href="chemestry_2017.pdf"
+target="_blank"
+class="year-btn">
+
+2017
+
+</a>
+
+<a href="_Chemistry2020.pdf"
+target="_blank"
+class="year-btn">
+
+2000
+
+</a>
+
+<a href="11.Chemistry_Class_XII_2023.pdf"
+target="_blank"
+class="year-btn">
+
+2023
+
+</a>
+<a href="130-_Chemistry2024.pdf"
+target="_blank"
+class="year-btn">
+
+2024
+
+</a>
+
+<a href="Adobe Scan 19-Sep-2025.pdf"
+target="_blank"
+class="year-btn">
+
+2025
+
+</a>
+</a>
+
+<a href="Chemistry_2026.pdf"
+target="_blank"
+class="year-btn">
+
+2026
+
+</a>
+</div>
+
+</div>
+
+<!-- CBSE SAMPLE -->
+
+<div class="pyq-card">
+
+<div class="top-badge">
+
+CBSE
+
+</div>
+
+<h2>
+
+📝 CBSE Sample Paper
+
+</h2>
+
+<p>
+
+Latest CBSE Chemistry
+Sample Papers with solutions.
+
+</p>
+
+<a href="CBSE2023.pdf"
+target="_blank"
+class="premium-btn">
+
+Open PDF
+
+</a>
+
+</div>
+
+<!-- UK SAMPLE -->
+
+<div class="pyq-card">
+
+<div class="top-badge uk">
+
+UK BOARD
+
+</div>
+
+<h2>
+
+🧾 UK Board Sample Paper
+
+</h2>
+
+<p>
+
+Latest Uttarakhand Board
+Sample Papers with solutions.
+
+</p>
+
+<button class="coming-btn">
+
+🚧 Coming Soon
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+
+<div class="footer">
+
+© PapaNotes • Smart Study Platform
+
+</div>
+
+</body>
+
+</html>
